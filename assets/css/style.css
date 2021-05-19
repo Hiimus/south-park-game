@@ -1,0 +1,17 @@
+
+body {
+  background: url(../img/sp-background.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sp-card {
+    min-width: 50px;
+    max-height: 80px;
+    border: 1px solid red;
+}
+
+.sp-logo {
+    max-width: 200px;
+}
