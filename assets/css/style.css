@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 
 body {
   background: url(../img/sp-background.png) no-repeat center center fixed;
@@ -9,9 +15,45 @@ body {
 .sp-card {
     min-width: 50px;
     max-height: 80px;
-    border: 1px solid red;
+    
 }
 
 .sp-logo {
     max-width: 200px;
+    margin-top: 20px;
 }
+
+.btn-menu {
+    margin-top: 20px;
+}
+
+img {
+    width: 100px;
+}
+
+.game-board {
+    height: 650px;
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+/*Using calc to subtract margin in order to fit card container*/
+
+.game-card {
+    width: calc(25% - 8px);
+    height: calc(33.333% - 8px);
+    position: relative;
+    margin: 4px;
+}
+
+.front-side,
+.back-side {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+}
+
+
