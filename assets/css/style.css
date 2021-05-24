@@ -37,6 +37,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    border: 1px solid black;
 }
 
 /*Using calc to subtract margin in order to fit card container*/
@@ -47,6 +48,8 @@ img {
     position: relative;
     margin: 4px;
     transform: scale(1);
+    transform-style: preserve-3d;
+    transition: all 0.4s ease;
 }
 
 .game-card:active {
@@ -64,7 +67,17 @@ img {
     height: 100%;
     width: 100%;
     padding: 25px;
+    backface-visibility: hidden;
 }
+
+.front-side {
+    transform: rotateY(180deg);
+}
+
+.cardFlipped {
+    transform: rotateY(180deg);
+}
+
 
 
 
