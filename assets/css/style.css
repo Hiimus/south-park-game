@@ -46,6 +46,16 @@ img {
     height: calc(33.333% - 8px);
     position: relative;
     margin: 4px;
+    transform: scale(1);
+}
+
+.game-card:active {
+    transform: scale(.96);
+    transition: transform .1s;
+}
+
+.game-card:hover {
+    cursor: pointer;
 }
 
 .front-side,
@@ -55,5 +65,7 @@ img {
     width: 100%;
     padding: 25px;
 }
+
+
 
 
