@@ -45,10 +45,18 @@ function cardFlip() {
     }
 }
 
+(function shuffleCards() {
+    cards.forEach(card => {
+        let randomPosition = Math.floor(Math.random() * 12);
+        card.style.order = randomPosition;
+    });
+})();
+
 function reset() {
     [hasFlipped, lock] = [false, false];
     [firstSign, secondSign] = [null. null];
 }
+
 
 
 cards.forEach(board => board.addEventListener('click', cardFlip));
