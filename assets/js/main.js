@@ -1,3 +1,7 @@
+$(document).ready(function(){
+        $("#exampleModal").modal('show');
+	});
+
 const cards = document.querySelectorAll('.game-card');
 
 let lock = false;
