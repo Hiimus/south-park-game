@@ -6,7 +6,7 @@
 
 
 body {
-  background: url(../img/sp-background.png) no-repeat center center fixed;
+  background: url(../img/sp-background-1.png) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -32,12 +32,12 @@ img {
 }
 
 .game-board {
-    height: 650px;
-    width: 650px;
+    height: 750px;
+    width: 750px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 /*Using calc to subtract margin in order to fit card container*/
@@ -50,6 +50,16 @@ img {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: all 0.4s ease;
+    background-color: rgba(230, 243, 223, 0.5);
+    border-radius: 5%;
+}
+
+.game-card-md {
+    display: none;
+}
+
+.game-card-hd {
+    display: none;
 }
 
 .game-card:active {
