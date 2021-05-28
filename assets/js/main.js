@@ -7,9 +7,12 @@ const cards = document.querySelectorAll('.game-card');
 let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
+let startTimer = false;
 
 
 function cardFlip() {
+    startTimer = true;
+    countDown();
     if (lock) return;
     if (this === firstSign) return;
 
@@ -64,6 +67,38 @@ function reset() {
 
 
 cards.forEach(board => board.addEventListener('click', cardFlip));
+cards.addEventListener('click', countDown);
+
+
+// Thirty second countdown.
+function countDown() {
+    var countDown = new Date().getTime() + 32000;
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+        
+    // Find the distance between now and the count down date
+    var distance = countDown - now;
+        
+    // Time calculations for seconds
+    
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in the div in the index.html
+    if (startTimer === true) {
+        document.getElementById("timer").innerHTML = "Timer: " + seconds + "s ";
+    }
+    
+        
+    // If the count down is over, write Game Over
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "Game Over";
+    }
+    }, 1000);
+}
 
 
 
