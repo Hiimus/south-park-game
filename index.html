@@ -20,7 +20,7 @@
 
     <!-- Button trigger modal -->
     <div class="mx-auto text-center">
-        <button type="button" class="btn btn-menu btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Menu
         </button>
     </div>
@@ -31,13 +31,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">South Park Matching Game</h5>
+                    <h5 class="modal-title text-center" id="exampleModalLabel">South Park Matching Game</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <h6>Game Rules:</h6>
+                            <h6 class="text-center">Game Rules:</h6>
                         </div>
                         <div class="row">
                             <p>Pair all the South Park figures before the timer runs out!</p>
@@ -47,30 +47,37 @@
                         </div>
                         <div class="row">
                             <div class="col mx-auto text-center p-1">
-                                <button type="button" class="btn btn-primary" id="easy">Easy</button>
+                                <button type="button" class="btn btn-difficulty" id="easy">Easy</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mx-auto text-center p-1">
-                                <button type="button" class="btn btn-primary" id="medium">Medium</button>
+                                <button type="button" class="btn btn-difficulty" id="medium">Medium</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mx-auto text-center p-1">
-                                <button type="button" class="btn btn-primary" id="hard">Hard</button>
+                                <button type="button" class="btn btn-difficulty" id="hard">Hard</button>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="modal-footer mx-auto">
-                    <button type="button" class="btn btn-primary" id="start-game">Start Game</button>
+                    <button type="button" class="btn btn-success" id="start-game">Start Game</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="flips">Flips: 0 </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div id="flips">Flips: 0 </div>
+            </div>
+        </div>
+    </div>
+    
 
     <!--Game Board-->
 
