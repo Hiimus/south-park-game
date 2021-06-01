@@ -4,46 +4,69 @@ $(document).ready(function () {
 });
 
 const cards = document.querySelectorAll('.game-card');
-
-
-
-
 let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
-
-
-
-
 let int = document.getElementById('flips');
 let integer = 0;
-
+let selectMedium = document.querySelectorAll('.game-card-md');
 let easy = document.getElementById('easy');
 let medium = document.getElementById('medium');
 let startGame = document.getElementById('start-game');
-
-
 let mediumId = document.querySelectorAll('#md');
+
 let hardId = document.querySelectorAll('#hd');
 
-easy.addEventListener('click', function easy() {
+easy.addEventListener('click', easyMode);
+
+function easyMode() {
     console.log('You selected easy');
-    rmIdMd();
-    rmIdHd();
+    toggleMd();
+    toggleHd();
     selectedEasy();
     shuffleCardsEs();
-});
-
-function rmIdMd() {
-    mediumId.forEach(sign => sign.remove());
 }
 
-function rmIdHd() {
-    hardId.forEach(sign => sign.remove());
+medium.addEventListener('click', mediumMode);
+
+function mediumMode() {
+    console.log('You selected medium');
+    toggleHd();
+    selectedMedium();
+}
+
+hard.addEventListener('click', hardMode);
+
+function hardMode() {
+    console.log('You selected hard');
+    selectedHard();
+}
+
+startGame.addEventListener('click', startingGame);
+
+function startingGame() {
+    $("#exampleModal").modal('hide');
+}
+
+function toggleMd() {
+    //mediumId.forEach(sign => sign.remove());
+    selectMedium.forEach(sign => sign.classList.toggle('game-card-md'));
+}
+
+function toggleHd() {
+    selectMedium.forEach(sign => sign.classList.toggle('game-card-md', 'game-card-hd'));
 }
 
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
+}
+
+function selectedMedium() {
+    cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
+}
+
+function selectedHard() {
+    cards.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
 }
 
 function shuffleCardsEs() {
@@ -55,56 +78,24 @@ function shuffleCardsEs() {
 
 
 
-medium.addEventListener('click', function medium() {
-    console.log('You selected medium');
-    var addMedium = document.querySelectorAll('.game-card-md');
-    addMedium.forEach(sign => sign.setAttribute('id', 'md'));
-    var hard = document.querySelectorAll('#hd');
-    hard.forEach(sign => sign.remove());
-    var addNewWidth = document.querySelectorAll('.game-card');
-    addNewWidth.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
-});
-
-
-
-hard.addEventListener('click', function hard() {
-    console.log('You selected hard');
-    
-    cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
-});
-
-
-startGame.addEventListener('click', function startGame() {
-    $("#exampleModal").modal('hide');
-});
-
-
-
-
-
+cards.forEach(board => board.addEventListener('click', cardFlip));
 
 function cardFlip() {
     if (lock === true) return;
     if (this === firstSign) return;
     integer += 1;
     this.classList.add('cardFlipped');
-
     int.innerHTML = 'Flips: ' + integer;
-
-
     if (!hasFlipped) {
         // first click
         hasFlipped = true;
         firstSign = this;
-
         return;
     }
     // second click 
     secondSign = this;
-
     checkMatching();
 }
-
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
@@ -114,12 +105,8 @@ function checkMatching() {
             firstSign.style.transform = "rotateY(180deg)";
             secondSign.style.transform = "rotateY(180deg)";
         }, 300);
-
-
-
     } else {
         // Not a match  
-
         notMatching();
     }
 }
@@ -127,68 +114,17 @@ function checkMatching() {
 function disableFlip() {
     firstSign.removeEventListener('click', cardFlip);
     secondSign.removeEventListener('click', cardFlip);
-
     reset();
 }
 
 function notMatching() {
     lock = true;
-
     setTimeout(function () {
         firstSign.classList.remove('cardFlipped');
         secondSign.classList.remove('cardFlipped');
-
         reset();
     }, 1000);
 }
-
-// function cardFlipMd() {
-
-//     integer += 1;
-//     if (lock) return;
-//     if (this === firstSign) return;
-
-//     this.classList.add('cardFlipped');
-
-//     int.innerHTML = 'Flips: ' + integer;
-
-//     // first click
-//     if (!hasFlipped) {
-//         hasFlipped = true;
-//         firstSign = this;
-
-//         // second click    
-//     } else {
-
-//         secondSign = this;
-
-//         if (firstSign.dataset.name === secondSign.dataset.name) {
-//             //It's a match
-//             firstSign.removeEventListener('click', cardFlipMd);
-//             secondSign.removeEventListener('click', cardFlipMd);
-//             setTimeout(function () {
-//                 firstSign.style.transform = "rotateY(180deg)";
-//                 secondSign.style.transform = "rotateY(180deg)";
-//             }, 300);
-
-//             reset();
-
-//         } else {
-//             // Not a match  
-//             lock = true;
-//             setTimeout(function () {
-//                 firstSign.classList.remove('cardFlipped');
-//                 secondSign.classList.remove('cardFlipped');
-
-//                 reset();
-//             }, 1000);
-
-//         }
-//     }
-// }
-
-
-
 
 (function shuffleCards() {
     cards.forEach(card => {
@@ -205,5 +141,3 @@ function reset() {
 }
 
 
-
-cards.forEach(board => board.addEventListener('click', cardFlip));

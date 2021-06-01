@@ -52,7 +52,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 
 /*Using calc to subtract margin in order to fit card container*/
@@ -83,9 +83,7 @@ img {
 
 
 
-.game-card-hd {
-    display: none;
-}
+
 
 .game-card:active {
     transform: scale(.96);
