@@ -4,7 +4,7 @@ $(document).ready(function () {
 });
 
 const cards = document.querySelectorAll('.game-card');
-//const cardsMd = document.querySelectorAll('.game-card, .game-card-md');
+
 
 
 
@@ -23,20 +23,41 @@ let medium = document.getElementById('medium');
 let startGame = document.getElementById('start-game');
 
 
+let mediumId = document.querySelectorAll('#md');
+let hardId = document.querySelectorAll('#hd');
 
 easy.addEventListener('click', function easy() {
     console.log('You selected easy');
-    var medium = document.querySelectorAll('#md');
-    medium.forEach(sign => sign.remove());
-    var hard = document.querySelectorAll('#hd');
-    hard.forEach(sign => sign.remove());
+    rmIdMd();
+    rmIdHd();
+    selectedEasy();
+    shuffleCardsEs();
+});
+
+function rmIdMd() {
+    mediumId.forEach(sign => sign.remove());
 }
 
-);
+function rmIdHd() {
+    hardId.forEach(sign => sign.remove());
+}
+
+function selectedEasy() {
+    cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
+}
+
+function shuffleCardsEs() {
+    cards.forEach(sign => {
+    let randomPositions = Math.floor(Math.random() * 12);
+    sign.style.order = randomPositions;
+    });
+};
+
+
 
 medium.addEventListener('click', function medium() {
     console.log('You selected medium');
-    var addMedium = document.querySelectorAll('.game-card-md'); 
+    var addMedium = document.querySelectorAll('.game-card-md');
     addMedium.forEach(sign => sign.setAttribute('id', 'md'));
     var hard = document.querySelectorAll('#hd');
     hard.forEach(sign => sign.remove());
@@ -44,10 +65,12 @@ medium.addEventListener('click', function medium() {
     addNewWidth.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
 });
 
+
+
 hard.addEventListener('click', function hard() {
     console.log('You selected hard');
-    var addNewWidth = document.querySelectorAll('.game-card');
-    addNewWidth.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
+    
+    cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
 });
 
 
@@ -184,4 +207,3 @@ function reset() {
 
 
 cards.forEach(board => board.addEventListener('click', cardFlip));
-//cardsMd.forEach(boardMd => boardMd.addEventListener('click', cardFlipMd));
