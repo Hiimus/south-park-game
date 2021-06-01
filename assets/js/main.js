@@ -4,7 +4,7 @@ $(document).ready(function () {
 });
 
 const cards = document.querySelectorAll('.game-card');
-const cardsMd = document.querySelectorAll('.game-card, .game-card-md');
+//const cardsMd = document.querySelectorAll('.game-card, .game-card-md');
 
 
 
@@ -22,18 +22,32 @@ let easy = document.getElementById('easy');
 let medium = document.getElementById('medium');
 let startGame = document.getElementById('start-game');
 
+
+
 easy.addEventListener('click', function easy() {
-
     console.log('You selected easy');
-    cards.forEach(sign => sign.style.display = 'block');
+    var medium = document.querySelectorAll('#md');
+    medium.forEach(sign => sign.remove());
+    var hard = document.querySelectorAll('#hd');
+    hard.forEach(sign => sign.remove());
+}
 
-});
+);
 
 medium.addEventListener('click', function medium() {
-
     console.log('You selected medium');
-    cards.forEach(sign => sign.classList.remove = 'game-card');
-    cardsMd.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(33.333% - 8px); position: relative; margin: 4px; transform: scale(1); transform-style: preserve-3d; transition: all 0.4s ease; background-color: rgba(230, 243, 223, 0.5); border-radius: 5%;'));
+    var addMedium = document.querySelectorAll('.game-card-md'); 
+    addMedium.forEach(sign => sign.setAttribute('id', 'md'));
+    var hard = document.querySelectorAll('#hd');
+    hard.forEach(sign => sign.remove());
+    var addNewWidth = document.querySelectorAll('.game-card');
+    addNewWidth.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
+});
+
+hard.addEventListener('click', function hard() {
+    console.log('You selected hard');
+    var addNewWidth = document.querySelectorAll('.game-card');
+    addNewWidth.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
 });
 
 
@@ -54,16 +68,16 @@ function cardFlip() {
 
     int.innerHTML = 'Flips: ' + integer;
 
-    
+
     if (!hasFlipped) {
         // first click
         hasFlipped = true;
         firstSign = this;
 
-        return;      
-    } 
+        return;
+    }
     // second click 
-    secondSign = this;    
+    secondSign = this;
 
     checkMatching();
 }
@@ -71,20 +85,20 @@ function cardFlip() {
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
-            //It's a match
-            disableFlip();
-            setTimeout(function () {
-                firstSign.style.transform = "rotateY(180deg)";
-                secondSign.style.transform = "rotateY(180deg)";
-            }, 300);
+        //It's a match
+        disableFlip();
+        setTimeout(function () {
+            firstSign.style.transform = "rotateY(180deg)";
+            secondSign.style.transform = "rotateY(180deg)";
+        }, 300);
 
-            
 
-        } else {
-            // Not a match  
-            
-            notMatching();
-        }
+
+    } else {
+        // Not a match  
+
+        notMatching();
+    }
 }
 
 function disableFlip() {
@@ -98,11 +112,11 @@ function notMatching() {
     lock = true;
 
     setTimeout(function () {
-                firstSign.classList.remove('cardFlipped');
-                secondSign.classList.remove('cardFlipped');
+        firstSign.classList.remove('cardFlipped');
+        secondSign.classList.remove('cardFlipped');
 
-                reset();
-            }, 1000);
+        reset();
+    }, 1000);
 }
 
 // function cardFlipMd() {
