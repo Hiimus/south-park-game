@@ -1,9 +1,12 @@
 $(document).ready(function () {
     cards.forEach(sign => sign.style.display = 'block');
+    displayNoneEasy();
     $("#exampleModal").modal('show');
 });
 
 const cards = document.querySelectorAll('.game-card');
+const divsArr = Array.from(cards);
+
 let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
@@ -25,6 +28,31 @@ function easyMode() {
     toggleHd();
     selectedEasy();
     shuffleCardsEs();
+    displayNoneEasy();
+}
+
+function displayNoneEasy() {
+    divsArr[12].style.display = "none";
+    divsArr[13].style.display = "none";
+    divsArr[14].style.display = "none";
+    divsArr[15].style.display = "none";
+    divsArr[16].style.display = "none";
+    divsArr[17].style.display = "none";
+    divsArr[18].style.display = "none";
+    divsArr[19].style.display = "none";
+    divsArr[20].style.display = "none";
+    divsArr[21].style.display = "none";
+    divsArr[22].style.display = "none";
+    divsArr[23].style.display = "none";
+}
+
+function displayNoneMedium() {
+    divsArr[18].style.display = "none";
+    divsArr[19].style.display = "none";
+    divsArr[20].style.display = "none";
+    divsArr[21].style.display = "none";
+    divsArr[22].style.display = "none";
+    divsArr[23].style.display = "none";
 }
 
 medium.addEventListener('click', mediumMode);
@@ -34,6 +62,7 @@ function mediumMode() {
     toggleHd();
     selectedMedium();
     shuffleCardsMd();
+    displayNoneMedium();
 }
 
 hard.addEventListener('click', hardMode);
