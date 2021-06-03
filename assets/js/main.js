@@ -33,6 +33,7 @@ function mediumMode() {
     console.log('You selected medium');
     toggleHd();
     selectedMedium();
+    shuffleCardsMd();
 }
 
 hard.addEventListener('click', hardMode);
@@ -40,6 +41,7 @@ hard.addEventListener('click', hardMode);
 function hardMode() {
     console.log('You selected hard');
     selectedHard();
+    shuffleCardsHd()
 }
 
 startGame.addEventListener('click', startingGame);
@@ -75,6 +77,20 @@ function shuffleCardsEs() {
     sign.style.order = randomPositions;
     });
 };
+
+function shuffleCardsMd() {
+    cards.forEach(sign => {
+    let randomPositions = Math.floor(Math.random() * 18);
+    sign.style.order = randomPositions;
+    });
+}
+
+function shuffleCardsHd() {
+    cards.forEach(sign => {
+    let randomPositions = Math.floor(Math.random() * 24);
+    sign.style.order = randomPositions;
+    });
+}
 
 
 
