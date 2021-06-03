@@ -82,7 +82,10 @@ cards.forEach(board => board.addEventListener('click', cardFlip));
 
 function cardFlip() {
     if (lock === true) return;
+    
     if (this === firstSign) return;
+    
+    
     integer += 1;
     this.classList.add('cardFlipped');
     int.innerHTML = 'Flips: ' + integer;
@@ -100,11 +103,13 @@ function cardFlip() {
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
         //It's a match
-        disableFlip();
+        firstSign.style.transform = "rotateY(180deg)";
         setTimeout(function () {
-            firstSign.style.transform = "rotateY(180deg)";
             secondSign.style.transform = "rotateY(180deg)";
         }, 300);
+        setTimeout(function () {
+            disableFlip();
+        }, 499); 
     } else {
         // Not a match  
         notMatching();
