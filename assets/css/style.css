@@ -68,22 +68,6 @@ img {
     border-radius: 5%;
 }
 
-.game-card-md {
-    /* width: calc(16.666% - 8px);
-    height: calc(33.333% - 8px);
-    position: relative;
-    margin: 4px;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: all 0.4s ease;
-    background-color: rgba(230, 243, 223, 0.5);
-    border-radius: 5%; */
-}
-
-
-
-
-
 .game-card:active {
     transform: scale(.96);
     transition: transform .1s;
@@ -130,7 +114,6 @@ img {
     background-image: url(../img/sp-group-3.png);
     background-repeat: no-repeat;
     background-size: contain;
-
 }
 
 

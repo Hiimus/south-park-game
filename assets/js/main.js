@@ -4,8 +4,13 @@ $(document).ready(function () {
     $("#exampleModal").modal('show');
 });
 
+
+
 const cards = document.querySelectorAll('.game-card');
 const divsArr = Array.from(cards);
+
+let front = document.querySelectorAll(".front-side");
+let back = document.querySelectorAll(".back-side");
 
 let lock = false;
 let firstSign, secondSign;
@@ -90,14 +95,20 @@ function toggleHd() {
 
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
+    front.forEach(sign => sign.setAttribute("style", "padding:"));
+    back.forEach(sign => sign.setAttribute("style", "padding:"));
 }
 
 function selectedMedium() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
+    front.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
+    back.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
 }
 
 function selectedHard() {
-    cards.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(25% - 8px); padding: 15px'));
+    cards.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(25% - 8px);'));
+    front.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
+    back.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
 }
 
 function shuffleCardsEs() {
@@ -154,7 +165,8 @@ function checkMatching() {
         }, 300);
         setTimeout(function () {
             disableFlip();
-        }, 499); 
+        }, 499);     
+
     } else {
         // Not a match  
         notMatching();
@@ -165,6 +177,7 @@ function disableFlip() {
     firstSign.removeEventListener('click', cardFlip);
     secondSign.removeEventListener('click', cardFlip);
     reset();
+
 }
 
 function notMatching() {
@@ -183,11 +196,23 @@ function notMatching() {
     });
 })();
 
+let element = document.querySelector(".game-card");
+
 function reset() {
     hasFlipped = false;
     lock = false;
     firstSign = null;
     secondSign = null;
-}
+    if (document.querySelectorAll(".cardFlipped").length && firstSign === null && secondSign === null) {
+    console.log("The element exists");
+    }
+    else {
+    console.log("The element does not exist");
+    }
+    }
+
+
+
+    
 
 
