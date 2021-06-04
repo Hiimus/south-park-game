@@ -101,8 +101,8 @@ function selectedEasy() {
 
 function selectedMedium() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
-    front.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
-    back.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
+    front.forEach(sign => sign.setAttribute("style", "padding: 35px 10px 35px 10px;"));
+    back.forEach(sign => sign.setAttribute("style", "padding: 35px 10px 35px 10px;"));
 }
 
 function selectedHard() {

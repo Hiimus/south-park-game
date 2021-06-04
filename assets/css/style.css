@@ -64,7 +64,7 @@ img {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: all 0.4s ease;
-    background-color: rgba(230, 243, 223, 0.5);
+    background-color: rgb(180 185 178 / 50%);
     border-radius: 5%;
 }
 
@@ -111,9 +111,27 @@ img {
 
 .modal-content {
     background-color: #edeeed;
-    background-image: url(../img/sp-group-3.png);
+    background-image: url(../img/sp-group-edited.png);
     background-repeat: no-repeat;
     background-size: contain;
+    z-index: 100;
+}
+
+.modal-content-background {
+    background-color: white;
+    z-index: 101;
+}
+
+.modal-header {
+    z-index: 102;
+}
+
+.modal-body  {
+    z-index: 102;
+}
+
+.modal-footer {
+    z-index: 102;
 }
 
 
