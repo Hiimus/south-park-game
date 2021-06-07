@@ -36,6 +36,26 @@ function easyMode() {
     displayNoneEasy();
 }
 
+let restart = document.getElementById("restart");
+
+restart.addEventListener("click", restartEs);
+
+function restartEs() {
+   
+    divsArr[0].classList.remove("cardFlipped");
+    divsArr[1].classList.remove("cardFlipped");
+    divsArr[2].classList.remove("cardFlipped");
+    divsArr[3].classList.remove("cardFlipped");
+    divsArr[4].classList.remove("cardFlipped");
+    divsArr[5].classList.remove("cardFlipped");
+    divsArr[6].classList.remove("cardFlipped");
+    divsArr[7].classList.remove("cardFlipped");
+    divsArr[8].classList.remove("cardFlipped");
+    divsArr[9].classList.remove("cardFlipped");
+    divsArr[10].classList.remove("cardFlipped");
+    divsArr[11].classList.remove("cardFlipped");
+}
+
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
     divsArr[13].style.display = "none";
@@ -143,13 +163,16 @@ function cardFlip() {
     
     
     integer += 1;
-    this.classList.add('cardFlipped');
     int.innerHTML = 'Flips: ' + integer;
+
+    this.classList.add('cardFlipped');
+    
     if (!hasFlipped) {
         // first click
         hasFlipped = true;
         firstSign = this;
         return;
+        
     }
     // second click 
     secondSign = this;
@@ -158,14 +181,13 @@ function cardFlip() {
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
-        //It's a match
         firstSign.style.transform = "rotateY(180deg)";
         setTimeout(function () {
             secondSign.style.transform = "rotateY(180deg)";
-        }, 300);
+        }, 200);
         setTimeout(function () {
             disableFlip();
-        }, 499);     
+        }, 201);     
 
     } else {
         // Not a match  
@@ -210,9 +232,3 @@ function reset() {
     console.log("The element does not exist");
     }
     }
-
-
-
-    
-
-
