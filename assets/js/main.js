@@ -12,9 +12,7 @@ const divsArr = Array.from(cards);
 let front = document.querySelectorAll(".front-side");
 let back = document.querySelectorAll(".back-side");
 
-let lock = false;
-let firstSign, secondSign;
-let hasFlipped = false;
+
 let int = document.getElementById('flips');
 let integer = 0;
 let selectMedium = document.querySelectorAll('.game-card-md');
@@ -36,25 +34,7 @@ function easyMode() {
     displayNoneEasy();
 }
 
-let restart = document.getElementById("restart");
 
-restart.addEventListener("click", restartEs);
-
-function restartEs() {
-   
-    divsArr[0].classList.remove("cardFlipped");
-    divsArr[1].classList.remove("cardFlipped");
-    divsArr[2].classList.remove("cardFlipped");
-    divsArr[3].classList.remove("cardFlipped");
-    divsArr[4].classList.remove("cardFlipped");
-    divsArr[5].classList.remove("cardFlipped");
-    divsArr[6].classList.remove("cardFlipped");
-    divsArr[7].classList.remove("cardFlipped");
-    divsArr[8].classList.remove("cardFlipped");
-    divsArr[9].classList.remove("cardFlipped");
-    divsArr[10].classList.remove("cardFlipped");
-    divsArr[11].classList.remove("cardFlipped");
-}
 
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
@@ -105,7 +85,7 @@ function startingGame() {
 }
 
 function toggleMd() {
-    //mediumId.forEach(sign => sign.remove());
+    
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md'));
 }
 
@@ -152,7 +132,38 @@ function shuffleCardsHd() {
     });
 }
 
+let restart = document.getElementById("restart");
 
+restart.addEventListener("click", restartEs);
+
+
+
+
+
+function restartEs() {
+    if (secondSign === null) {
+        integer = 0;
+        int.innerHTML = 'Flips: 0';
+        divsArr[0].style.transform = "rotate(360deg)";
+        divsArr[1].style.transform = "rotate(360deg)";
+        divsArr[2].style.transform = "rotate(360deg)";
+        divsArr[3].style.transform = "rotate(360deg)";
+        divsArr[4].style.transform = "rotate(360deg)";
+        divsArr[5].style.transform = "rotate(360deg)";
+        divsArr[6].style.transform = "rotate(360deg)";
+        divsArr[7].style.transform = "rotate(360deg)";
+        divsArr[8].style.transform = "rotate(360deg)";
+        divsArr[9].style.transform = "rotate(360deg)";
+        divsArr[10].style.transform = "rotate(360deg)";
+        divsArr[11].style.transform = "rotate(360deg)";
+    }
+    //shuffleCardsEs();
+    
+}
+
+let lock = false;
+let firstSign, secondSign;
+let hasFlipped = false;
 
 cards.forEach(board => board.addEventListener('click', cardFlip));
 
@@ -202,6 +213,8 @@ function disableFlip() {
 
 }
 
+
+
 function notMatching() {
     lock = true;
     setTimeout(function () {
@@ -225,10 +238,11 @@ function reset() {
     lock = false;
     firstSign = null;
     secondSign = null;
-    if (document.querySelectorAll(".cardFlipped").length && firstSign === null && secondSign === null) {
-    console.log("The element exists");
-    }
-    else {
-    console.log("The element does not exist");
-    }
+    
+    //if (document.querySelectorAll(".cardFlipped").length && firstSign === null && secondSign === null) {
+    //console.log("The element exists");
+    //}
+    //else {
+    //console.log("The element does not exist");
+    //}
     }
