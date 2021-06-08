@@ -34,8 +34,6 @@ function easyMode() {
     displayNoneEasy();
 }
 
-
-
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
     divsArr[13].style.display = "none";
@@ -132,34 +130,6 @@ function shuffleCardsHd() {
     });
 }
 
-let restart = document.getElementById("restart");
-
-restart.addEventListener("click", restartEs);
-
-
-
-
-
-function restartEs() {
-    if (secondSign === null) {
-        integer = 0;
-        int.innerHTML = 'Flips: 0';
-        divsArr[0].style.transform = "rotate(360deg)";
-        divsArr[1].style.transform = "rotate(360deg)";
-        divsArr[2].style.transform = "rotate(360deg)";
-        divsArr[3].style.transform = "rotate(360deg)";
-        divsArr[4].style.transform = "rotate(360deg)";
-        divsArr[5].style.transform = "rotate(360deg)";
-        divsArr[6].style.transform = "rotate(360deg)";
-        divsArr[7].style.transform = "rotate(360deg)";
-        divsArr[8].style.transform = "rotate(360deg)";
-        divsArr[9].style.transform = "rotate(360deg)";
-        divsArr[10].style.transform = "rotate(360deg)";
-        divsArr[11].style.transform = "rotate(360deg)";
-    }
-    //shuffleCardsEs();
-    
-}
 
 let lock = false;
 let firstSign, secondSign;
@@ -167,7 +137,23 @@ let hasFlipped = false;
 
 cards.forEach(board => board.addEventListener('click', cardFlip));
 
+var parent = document.getElementById("game-board");
+var nodesSameClass = parent.getElementsByClassName("cardFlipped");
+var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
+var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
+
+
 function cardFlip() {
+    console.log(nodesSameClass.length);
+    if (nodesSameClass.length === 11){
+        console.log("You sir, are finally having some progress!");
+    }
+    if (nodesSameClass.length === 17 && nodesSameClassMd.length === 6){
+        console.log("And thats a wrap for medium mode!")
+    }
+    if (nodesSameClass.length === 23 && nodesSameClassHd.length === 6){
+        console.log("Winner on hard!!");
+    }
     if (lock === true) return;
     
     if (this === firstSign) return;
