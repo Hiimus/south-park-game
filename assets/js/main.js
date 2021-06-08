@@ -158,6 +158,19 @@ var nodesSameClass = parent.getElementsByClassName("cardFlipped");
 var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
 var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 
+var thing = document.getElementById("game-card");
+var node = document.querySelectorAll("cardFlipped");
+
+function myFunction() {
+    if(document.getElementById("game-board").contains(thing)){
+        console.log("IT works");
+        
+    
+    }
+  
+  
+}
+
 
 function cardFlip() {
     console.log(nodesSameClass.length);
@@ -173,6 +186,8 @@ function cardFlip() {
         console.log("Winner on hard!!");
         alert("YOU DID IT! HARD!!");
     }
+    
+    myFunction();
     if (lock === true) return;
     
     if (this === firstSign) return;
@@ -182,6 +197,8 @@ function cardFlip() {
     int.innerHTML = 'Flips: ' + integer;
 
     this.classList.add('cardFlipped');
+
+    
     
     if (!hasFlipped) {
         // first click
