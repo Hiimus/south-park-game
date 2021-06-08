@@ -25,14 +25,24 @@ let hardId = document.querySelectorAll('#hd');
 
 easy.addEventListener('click', easyMode);
 
+let easyModus = false;
+let mediumModus = false;
+let hardModus = false;
+
 function easyMode() {
     console.log('You selected easy');
+    easyModus = true;
+    mediumModus = false;
+    hardModus = false;
     toggleMd();
     toggleHd();
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
+    
 }
+
+let cardFlipped = document.querySelectorAll(".cardFlipped");
 
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
@@ -62,6 +72,9 @@ medium.addEventListener('click', mediumMode);
 
 function mediumMode() {
     console.log('You selected medium');
+    easyModus = false;
+    mediumModus = true;
+    hardModus = false;
     toggleHd();
     selectedMedium();
     shuffleCardsMd();
@@ -72,6 +85,9 @@ hard.addEventListener('click', hardMode);
 
 function hardMode() {
     console.log('You selected hard');
+    easyModus = false;
+    mediumModus = false;
+    hardModus = true;
     selectedHard();
     shuffleCardsHd()
 }
@@ -145,14 +161,17 @@ var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 
 function cardFlip() {
     console.log(nodesSameClass.length);
-    if (nodesSameClass.length === 11){
+    if (nodesSameClass.length === 11 && easyModus == true){
         console.log("You sir, are finally having some progress!");
+        alert("YOU DID IT! EASY!!");
     }
-    if (nodesSameClass.length === 17 && nodesSameClassMd.length === 6){
+    if (nodesSameClass.length === 17 && mediumModus == true){
         console.log("And thats a wrap for medium mode!")
+        alert("YOU DID IT! MEDIUM!!");
     }
-    if (nodesSameClass.length === 23 && nodesSameClassHd.length === 6){
+    if (nodesSameClass.length === 23 && hardModus == true){
         console.log("Winner on hard!!");
+        alert("YOU DID IT! HARD!!");
     }
     if (lock === true) return;
     
@@ -224,11 +243,4 @@ function reset() {
     lock = false;
     firstSign = null;
     secondSign = null;
-    
-    //if (document.querySelectorAll(".cardFlipped").length && firstSign === null && secondSign === null) {
-    //console.log("The element exists");
-    //}
-    //else {
-    //console.log("The element does not exist");
-    //}
     }
