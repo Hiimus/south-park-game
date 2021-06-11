@@ -182,24 +182,27 @@ function myFunction() {
   
 }
 
+var winningModal = document.getElementById("staticBackdropLabel");
 
 function cardFlip() {
     console.log(nodesSameClass.length);
     if (nodesSameClass.length === 11 && easyModus == true){
         setTimeout(function () {
-            alert("YOU DID IT! EASY!!");
+            $("#staticBackdrop-es").modal('show');
         }, 1200);
         
     }
     if (nodesSameClass.length === 17 && mediumModus == true){
         setTimeout(function () {
-            alert("YOU DID IT! MEDIUM!!");
+            $("#staticBackdrop-es").modal('show');
+            winningModal.innerHTML = "YOU WON MEDIUM";
         }, 1200);
         
     }
     if (nodesSameClass.length === 23 && hardModus == true){
         setTimeout(function () {
-            alert("YOU DID IT! HARD!!");
+            $("#staticBackdrop-es").modal('show');
+            winningModal.innerHTML = "YOU WON HARD";
         }, 1200);
         
     }

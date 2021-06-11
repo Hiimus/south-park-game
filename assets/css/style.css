@@ -109,12 +109,21 @@ img {
     font-family: 'Alfa Slab One', cursive, sans-serif;
 }
 
-.modal-content {
+.menu {
     background-color: #edeeed;
     background-image: url(../img/sp-group-edited.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 100;
+}
+
+.winning-modal {
+    background-color: #edeeed;
+    background-image: url(../img/sp-group.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 99;
+    height: 200px;
 }
 
 .modal-content-background {
@@ -129,6 +138,8 @@ img {
 .modal-body  {
     z-index: 102;
 }
+
+
 
 .modal-footer {
     z-index: 102;
