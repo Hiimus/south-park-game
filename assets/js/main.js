@@ -12,7 +12,9 @@ const divsArr = Array.from(cards);
 let front = document.querySelectorAll(".front-side");
 let back = document.querySelectorAll(".back-side");
 
-
+let easyModus = false;
+let mediumModus = false;
+let hardModus = false;
 let int = document.getElementById('flips');
 let integer = 0;
 let selectMedium = document.querySelectorAll('.game-card-md');
@@ -25,21 +27,22 @@ let hardId = document.querySelectorAll('#hd');
 
 easy.addEventListener('click', easyMode);
 
-let easyModus = false;
-let mediumModus = false;
-let hardModus = false;
+
 
 function easyMode() {
     console.log('You selected easy');
-    easyModus = true;
-    mediumModus = false;
-    hardModus = false;
+    checkIfWonEasy();
     toggleMd();
     toggleHd();
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
-    
+}
+
+function checkIfWonEasy() {
+    easyModus = true;
+    mediumModus = false;
+    hardModus = false;
 }
 
 let cardFlipped = document.querySelectorAll(".cardFlipped");
@@ -72,24 +75,32 @@ medium.addEventListener('click', mediumMode);
 
 function mediumMode() {
     console.log('You selected medium');
-    easyModus = false;
-    mediumModus = true;
-    hardModus = false;
+    checkIfWonMedium();
     toggleHd();
     selectedMedium();
     shuffleCardsMd();
     displayNoneMedium();
 }
 
+function checkIfWonMedium() {
+    easyModus = false;
+    mediumModus = true;
+    hardModus = false;
+}
+
 hard.addEventListener('click', hardMode);
 
 function hardMode() {
     console.log('You selected hard');
+    checkIfWonHard();
+    selectedHard();
+    shuffleCardsHd()
+}
+
+function checkIfWonHard() {
     easyModus = false;
     mediumModus = false;
     hardModus = true;
-    selectedHard();
-    shuffleCardsHd()
 }
 
 startGame.addEventListener('click', startingGame);
@@ -175,16 +186,22 @@ function myFunction() {
 function cardFlip() {
     console.log(nodesSameClass.length);
     if (nodesSameClass.length === 11 && easyModus == true){
-        console.log("You sir, are finally having some progress!");
-        alert("YOU DID IT! EASY!!");
+        setTimeout(function () {
+            alert("YOU DID IT! EASY!!");
+        }, 1200);
+        
     }
     if (nodesSameClass.length === 17 && mediumModus == true){
-        console.log("And thats a wrap for medium mode!")
-        alert("YOU DID IT! MEDIUM!!");
+        setTimeout(function () {
+            alert("YOU DID IT! MEDIUM!!");
+        }, 1200);
+        
     }
     if (nodesSameClass.length === 23 && hardModus == true){
-        console.log("Winner on hard!!");
-        alert("YOU DID IT! HARD!!");
+        setTimeout(function () {
+            alert("YOU DID IT! HARD!!");
+        }, 1200);
+        
     }
     
     myFunction();
