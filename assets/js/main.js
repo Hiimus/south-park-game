@@ -37,7 +37,7 @@ function easyMode() {
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
-    
+
 }
 
 function checkIfWonEasy() {
@@ -111,7 +111,7 @@ function startingGame() {
 }
 
 function toggleMd() {
-    
+
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md'));
 }
 
@@ -120,26 +120,56 @@ function toggleHd() {
 }
 
 let restart = document.getElementById("restart");
+let restartIcon = document.getElementById("restart-icon");
 
 function restartGame() {
-    if(easyModus == true){
+
+    if (easyModus == true) {
         restart.addEventListener("click", easyMode);
         restart.removeEventListener("click", hardMode);
         restart.removeEventListener("click", mediumMode);
     }
-    if(mediumModus == true){
+    if (mediumModus == true) {
         restart.removeEventListener("click", easyMode);
         restart.removeEventListener("click", hardMode);
         restart.addEventListener("click", mediumMode);
     }
-    if(hardModus == true){
+    if (hardModus == true) {
         restart.removeEventListener("click", easyMode);
         restart.removeEventListener("click", mediumMode);
         restart.addEventListener("click", hardMode);
     }
 }
 
+function restartRotate() {
+    restartIcon.style.transform = "rotate(180deg)";
+    restartIcon.classList.add("fa-2x");
+}
+
+function restartRotateBack() {
+    restartIcon.style.transform = "rotate(0deg)";
+    restartIcon.classList.remove("fa-2x");
+    restartIcon.style.transition = "transform 0.5s";
+    if(hover == true){
+        restartIcon.style.transform = "rotate(800deg)";
+    }
+}
+
+let hover = false;
+
+function clickRestartButton() {
+    restartIcon.style.transform = "scale(1.5)";
+    hover = true;
+    if (hover == true) {
+        restartIcon.style.transform = "rotate(800deg)";
+        restartIcon.style.transition = "transform 0.5s";
+    }
+}
+
 restart.addEventListener("mouseover", restartGame);
+restartIcon.addEventListener("mouseover", restartRotate);
+restartIcon.addEventListener("mouseleave", restartRotateBack);
+restartIcon.addEventListener("click", clickRestartButton);
 
 
 function selectedEasy() {
@@ -168,22 +198,22 @@ function selectedHard() {
 
 function shuffleCardsEs() {
     cards.forEach(sign => {
-    let randomPositions = Math.floor(Math.random() * 12);
-    sign.style.order = randomPositions;
+        let randomPositions = Math.floor(Math.random() * 12);
+        sign.style.order = randomPositions;
     });
 };
 
 function shuffleCardsMd() {
     cards.forEach(sign => {
-    let randomPositions = Math.floor(Math.random() * 18);
-    sign.style.order = randomPositions;
+        let randomPositions = Math.floor(Math.random() * 18);
+        sign.style.order = randomPositions;
     });
 }
 
 function shuffleCardsHd() {
     cards.forEach(sign => {
-    let randomPositions = Math.floor(Math.random() * 24);
-    sign.style.order = randomPositions;
+        let randomPositions = Math.floor(Math.random() * 24);
+        sign.style.order = randomPositions;
     });
 }
 
@@ -204,59 +234,59 @@ var node = document.querySelectorAll(".cardFlipped");
 
 
 function myFunction() {
-    if(document.getElementById("game-board").contains(thing)){
+    if (document.getElementById("game-board").contains(thing)) {
         console.log("IT works");
-        
-    
+
+
     }
-  
-  
+
+
 }
 
 var winningModal = document.getElementById("staticBackdropLabel");
 
 function cardFlip() {
     console.log(nodesSameClass.length);
-    if (nodesSameClass.length === 11 && easyModus == true){
+    if (nodesSameClass.length === 11 && easyModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
         }, 1200);
-        
+
     }
-    if (nodesSameClass.length === 17 && mediumModus == true){
+    if (nodesSameClass.length === 17 && mediumModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             winningModal.innerHTML = "YOU WON MEDIUM";
         }, 1200);
-        
+
     }
-    if (nodesSameClass.length === 23 && hardModus == true){
+    if (nodesSameClass.length === 23 && hardModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             winningModal.innerHTML = "YOU WON HARD";
         }, 1200);
-        
+
     }
-    
+
     myFunction();
     if (lock === true) return;
-    
+
     if (this === firstSign) return;
-    
-    
+
+
     integer += 1;
     int.innerHTML = 'Flips: ' + integer;
 
     this.classList.add('cardFlipped');
 
-    
-    
+
+
     if (!hasFlipped) {
         // first click
         hasFlipped = true;
         firstSign = this;
         return;
-        
+
     }
     // second click 
     secondSign = this;
@@ -271,7 +301,7 @@ function checkMatching() {
         }, 200);
         setTimeout(function () {
             disableFlip();
-        }, 201);     
+        }, 201);
 
     } else {
         // Not a match  
@@ -311,4 +341,4 @@ function reset() {
     lock = false;
     firstSign = null;
     secondSign = null;
-    }
+}

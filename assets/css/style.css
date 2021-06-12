@@ -146,4 +146,6 @@ img {
 }
 
 
-
+#restart-icon {
+    transform: scale(1);
+}
