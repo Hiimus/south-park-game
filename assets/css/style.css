@@ -104,6 +104,12 @@ img {
     margin-top: 15px;
 }
 
+#timer {
+    color: black;
+    font-family: 'Alfa Slab One', cursive, sans-serif;
+    margin-top: 15px;
+}
+
 #restart-icon {
     margin-top: 20px;
     cursor: pointer;
@@ -113,6 +119,11 @@ img {
     width: 750px;
     display: flex;
     margin: auto;
+}
+
+.input-message {
+    height: 400px;
+    width: 700px;
 }
 
 .modal {

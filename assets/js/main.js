@@ -23,8 +23,71 @@ let easy = document.getElementById('easy');
 let medium = document.getElementById('medium');
 let startGame = document.getElementById('start-game');
 let mediumId = document.querySelectorAll('#md');
-
 let hardId = document.querySelectorAll('#hd');
+
+
+
+function timerStartEs() {
+        var time = 5;
+        var x = setInterval(function () {
+        document.getElementById("timer").innerHTML = "Timer: " + time;
+        time = time - 1;
+
+        if(time < 0){
+        clearInterval(x);
+        console.log("You lost m8");
+        timer = false;
+    }
+
+    }, 1000);
+
+
+}
+
+function timerStartMd() {
+        var time = 10;
+        var x = setInterval(function () {
+        document.getElementById("timer").innerHTML = "Timer: " + time;
+        time = time - 1;
+
+        if(time < 0){
+        clearInterval(x);
+        alert("You lost m8");
+    }
+
+    }, 1000);
+
+
+}
+
+function timerStartHd() {
+        var time = 12;
+        var x = setInterval(function () {
+        document.getElementById("timer").innerHTML = "Timer: " + time;
+        time = time - 1;
+
+        if(time < 0){
+        clearInterval(x);
+        alert("You lost m8");
+    }
+
+    }, 1000);
+
+
+}
+
+function checkTheTimer() {
+    if (timer = true){
+        timerStartEs();
+    }
+}
+    
+
+
+
+
+
+let timer = false;
 
 easy.addEventListener('click', easyMode);
 
@@ -151,7 +214,7 @@ function restartRotateBack() {
     restartIcon.style.transform = "rotate(0deg)";
     restartIcon.classList.remove("fa-2x");
     restartIcon.style.transition = "transform 0.5s";
-    if(hover == true){
+    if (hover == true) {
         restartIcon.style.transform = "rotate(800deg)";
     }
 }
@@ -159,6 +222,8 @@ function restartRotateBack() {
 let hover = false;
 
 function clickRestartButton() {
+    integer = 0;
+    int.innerHTML = "Flips: 0";
     restartIcon.style.transform = "scale(1.5)";
     hover = true;
     if (hover == true) {
@@ -273,7 +338,22 @@ function cardFlip() {
     if (lock === true) return;
 
     if (this === firstSign) return;
-
+    
+    timer = true;
+    if (integer === 0){
+        if (easyModus === true) {
+            timerStartEs();
+        }
+        if (mediumModus === true) {
+            timerStartMd();
+        }
+        if (hardModus === true) {
+            timerStartHd();
+        }
+        
+    }
+    
+    
 
     integer += 1;
     int.innerHTML = 'Flips: ' + integer;
