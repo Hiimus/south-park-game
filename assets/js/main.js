@@ -119,6 +119,27 @@ function toggleHd() {
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md', 'game-card-hd'));
 }
 
+let restart = document.getElementById("restart");
+
+function restartGame() {
+    if(easyModus == true){
+        restart.addEventListener("click", easyMode);
+        restart.removeEventListener("click", hardMode);
+        restart.removeEventListener("click", mediumMode);
+    }
+    if(mediumModus == true){
+        restart.removeEventListener("click", easyMode);
+        restart.removeEventListener("click", hardMode);
+        restart.addEventListener("click", mediumMode);
+    }
+    if(hardModus == true){
+        restart.removeEventListener("click", easyMode);
+        restart.removeEventListener("click", mediumMode);
+        restart.addEventListener("click", hardMode);
+    }
+}
+
+restart.addEventListener("mouseover", restartGame);
 
 
 function selectedEasy() {
