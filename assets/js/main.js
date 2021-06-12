@@ -37,6 +37,7 @@ function easyMode() {
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
+    
 }
 
 function checkIfWonEasy() {
@@ -118,22 +119,30 @@ function toggleHd() {
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md', 'game-card-hd'));
 }
 
+
+
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
     front.forEach(sign => sign.setAttribute("style", "padding:"));
     back.forEach(sign => sign.setAttribute("style", "padding:"));
+    cards.forEach(sign => sign.classList.remove("cardFlipped"));
+    cards.forEach(board => board.addEventListener('click', cardFlip));
 }
 
 function selectedMedium() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
     front.forEach(sign => sign.setAttribute("style", "padding: 35px 10px 35px 10px;"));
     back.forEach(sign => sign.setAttribute("style", "padding: 35px 10px 35px 10px;"));
+    cards.forEach(sign => sign.classList.remove("cardFlipped"));
+    cards.forEach(board => board.addEventListener('click', cardFlip));
 }
 
 function selectedHard() {
     cards.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(25% - 8px);'));
     front.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
     back.forEach(sign => sign.setAttribute("style", "padding: 25px 10px 25px 10px;"));
+    cards.forEach(sign => sign.classList.remove("cardFlipped"));
+    cards.forEach(board => board.addEventListener('click', cardFlip));
 }
 
 function shuffleCardsEs() {
@@ -170,7 +179,8 @@ var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
 var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 
 var thing = document.getElementById("game-card");
-var node = document.querySelectorAll("cardFlipped");
+var node = document.querySelectorAll(".cardFlipped");
+
 
 function myFunction() {
     if(document.getElementById("game-board").contains(thing)){
