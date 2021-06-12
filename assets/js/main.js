@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    cards.forEach(sign => sign.style.display = 'block');
-    displayNoneEasy();
+    //cards.forEach(sign => sign.style.display = 'block');
+    //displayNoneEasy();
+    easyMode();
     $("#exampleModal").modal('show');
 });
 

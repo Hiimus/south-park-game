@@ -16,15 +16,25 @@
 </head>
 
 <body>
-    <header>
-        <img src="assets/img/sp-group.png" alt="south park logo" class="sp-logo mx-auto d-block">
-    </header>
 
-    <!-- Button trigger modal -->
-    <div class="mx-auto text-center">
-        <button type="button" class="btn btn-menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Menu
-        </button>
+  
+
+    <!-- Menu button, Flip conter and Restart wheelCounting amount of flips & Restart wheel -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <div id="flips">Flips: 0 </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Menu
+                </button>
+            </div>
+            <div class="col-2">
+                <div id="restart"><i class="fas fa-redo-alt fa-lg" id="restart-icon"></i></div>
+            </div>
+        </div>
     </div>
 
 
@@ -94,26 +104,6 @@
             </div>
         </div>
     </div>
-
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div id="flips">Flips: 0 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div id="restart"><i class="fas fa-redo-alt fa-lg" id="restart-icon"></i></div>
-            </div>
-        </div>
-    </div>
-
-
-
 
     <!--Game Board-->
 
@@ -215,6 +205,8 @@
             <img class="back-side" src="assets/img/sp-card.png" alt="South Park sign">
         </div>
     </section>
+
+    <a href="">Contact</a>
 
 
 
