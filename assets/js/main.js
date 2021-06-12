@@ -5,14 +5,10 @@ $(document).ready(function () {
     $("#exampleModal").modal('show');
 });
 
-
-
 const cards = document.querySelectorAll('.game-card');
 const divsArr = Array.from(cards);
-
 let front = document.querySelectorAll(".front-side");
 let back = document.querySelectorAll(".back-side");
-
 let easyModus = false;
 let mediumModus = false;
 let hardModus = false;
@@ -24,8 +20,34 @@ let medium = document.getElementById('medium');
 let startGame = document.getElementById('start-game');
 let mediumId = document.querySelectorAll('#md');
 let hardId = document.querySelectorAll('#hd');
+let timerDiv = document.getElementById("timer");
+let timer = false;
+let cardFlipped = document.querySelectorAll(".cardFlipped");
+let hover = false;
+let restartWasClicked = false;
+var parent = document.getElementById("game-board");
+var nodesSameClass = parent.getElementsByClassName("cardFlipped");
+var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
+var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
+var thing = document.getElementById("game-card");
+var node = document.querySelectorAll(".cardFlipped");
+var winningModal = document.getElementById("staticBackdropLabel");
+let restart = document.getElementById("restart");
+let restartIcon = document.getElementById("restart-icon");
+let element = document.querySelector(".game-card");
+let lock = false;
+let firstSign, secondSign;
+let hasFlipped = false;
 
-
+easy.addEventListener('click', easyMode);
+medium.addEventListener('click', mediumMode);
+hard.addEventListener('click', hardMode);
+startGame.addEventListener('click', startingGame);
+restart.addEventListener("mouseover", restartGame);
+restartIcon.addEventListener("mouseover", restartRotate);
+restartIcon.addEventListener("mouseleave", restartRotateBack);
+restartIcon.addEventListener("click", clickRestartButton);
+cards.forEach(board => board.addEventListener('click', cardFlip));
 
 function timerStartEs() {
         var time = 5;
@@ -38,10 +60,12 @@ function timerStartEs() {
         console.log("You lost m8");
         timer = false;
     }
-
+    if(restartWasClicked === true) {
+        clearInterval(x);
+        timerDiv.innerHTML = "Timer: 5";
+        timer = false;
+    }
     }, 1000);
-
-
 }
 
 function timerStartMd() {
@@ -54,26 +78,20 @@ function timerStartMd() {
         clearInterval(x);
         alert("You lost m8");
     }
-
     }, 1000);
-
-
 }
 
 function timerStartHd() {
         var time = 12;
         var x = setInterval(function () {
-        document.getElementById("timer").innerHTML = "Timer: " + time;
+        timerDiv.innerHTML = "Timer: " + time;
         time = time - 1;
 
         if(time < 0){
         clearInterval(x);
         alert("You lost m8");
     }
-
     }, 1000);
-
-
 }
 
 function checkTheTimer() {
@@ -82,17 +100,6 @@ function checkTheTimer() {
     }
 }
     
-
-
-
-
-
-let timer = false;
-
-easy.addEventListener('click', easyMode);
-
-
-
 function easyMode() {
     console.log('You selected easy');
     checkIfWonEasy();
@@ -101,7 +108,6 @@ function easyMode() {
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
-
 }
 
 function checkIfWonEasy() {
@@ -109,8 +115,6 @@ function checkIfWonEasy() {
     mediumModus = false;
     hardModus = false;
 }
-
-let cardFlipped = document.querySelectorAll(".cardFlipped");
 
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
@@ -136,8 +140,6 @@ function displayNoneMedium() {
     divsArr[23].style.display = "none";
 }
 
-medium.addEventListener('click', mediumMode);
-
 function mediumMode() {
     console.log('You selected medium');
     checkIfWonMedium();
@@ -153,8 +155,6 @@ function checkIfWonMedium() {
     hardModus = false;
 }
 
-hard.addEventListener('click', hardMode);
-
 function hardMode() {
     console.log('You selected hard');
     checkIfWonHard();
@@ -167,8 +167,6 @@ function checkIfWonHard() {
     mediumModus = false;
     hardModus = true;
 }
-
-startGame.addEventListener('click', startingGame);
 
 function startingGame() {
     $("#exampleModal").modal('hide');
@@ -183,11 +181,7 @@ function toggleHd() {
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md', 'game-card-hd'));
 }
 
-let restart = document.getElementById("restart");
-let restartIcon = document.getElementById("restart-icon");
-
 function restartGame() {
-
     if (easyModus == true) {
         restart.addEventListener("click", easyMode);
         restart.removeEventListener("click", hardMode);
@@ -219,9 +213,8 @@ function restartRotateBack() {
     }
 }
 
-let hover = false;
-
 function clickRestartButton() {
+    restartWasClicked = true;
     integer = 0;
     int.innerHTML = "Flips: 0";
     restartIcon.style.transform = "scale(1.5)";
@@ -230,13 +223,11 @@ function clickRestartButton() {
         restartIcon.style.transform = "rotate(800deg)";
         restartIcon.style.transition = "transform 0.5s";
     }
+    if (easyModus === true){
+        timerDiv.innerHTML = "Timer: 5";
+        time = 5;
+    }
 }
-
-restart.addEventListener("mouseover", restartGame);
-restartIcon.addEventListener("mouseover", restartRotate);
-restartIcon.addEventListener("mouseleave", restartRotateBack);
-restartIcon.addEventListener("click", clickRestartButton);
-
 
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
@@ -283,63 +274,52 @@ function shuffleCardsHd() {
     });
 }
 
-
-let lock = false;
-let firstSign, secondSign;
-let hasFlipped = false;
-
-cards.forEach(board => board.addEventListener('click', cardFlip));
-
-var parent = document.getElementById("game-board");
-var nodesSameClass = parent.getElementsByClassName("cardFlipped");
-var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
-var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
-
-var thing = document.getElementById("game-card");
-var node = document.querySelectorAll(".cardFlipped");
-
-
-function myFunction() {
-    if (document.getElementById("game-board").contains(thing)) {
-        console.log("IT works");
-
-
-    }
-
-
-}
-
-var winningModal = document.getElementById("staticBackdropLabel");
-
-function cardFlip() {
-    console.log(nodesSameClass.length);
+function modalWhenWinningEasy(){
     if (nodesSameClass.length === 11 && easyModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
         }, 1200);
-
     }
+}
+
+function modalWhenWinningMedium(){
     if (nodesSameClass.length === 17 && mediumModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             winningModal.innerHTML = "YOU WON MEDIUM";
         }, 1200);
-
     }
+}
+
+function modalWhenWinningHard(){
     if (nodesSameClass.length === 23 && hardModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             winningModal.innerHTML = "YOU WON HARD";
         }, 1200);
-
     }
+}
 
-    myFunction();
+function cardFlip() {
+    modalWhenWinningEasy();
+    modalWhenWinningMedium();
+    modalWhenWinningHard();
     if (lock === true) return;
-
     if (this === firstSign) return;
-    
     timer = true;
+    timerStart();
+    flipCounter();
+    this.classList.add('cardFlipped');
+    if (!hasFlipped) {
+        hasFlipped = true;
+        firstSign = this;
+        return;
+    }
+    secondSign = this;
+    checkMatching();
+}
+
+function timerStart(){
     if (integer === 0){
         if (easyModus === true) {
             timerStartEs();
@@ -350,28 +330,12 @@ function cardFlip() {
         if (hardModus === true) {
             timerStartHd();
         }
-        
     }
-    
-    
+}
 
+function flipCounter(){
     integer += 1;
     int.innerHTML = 'Flips: ' + integer;
-
-    this.classList.add('cardFlipped');
-
-
-
-    if (!hasFlipped) {
-        // first click
-        hasFlipped = true;
-        firstSign = this;
-        return;
-
-    }
-    // second click 
-    secondSign = this;
-    checkMatching();
 }
 
 function checkMatching() {
@@ -397,8 +361,6 @@ function disableFlip() {
 
 }
 
-
-
 function notMatching() {
     lock = true;
     setTimeout(function () {
@@ -407,15 +369,6 @@ function notMatching() {
         reset();
     }, 1000);
 }
-
-(function shuffleCards() {
-    cards.forEach(card => {
-        let randomPosition = Math.floor(Math.random() * 12);
-        card.style.order = randomPosition;
-    });
-})();
-
-let element = document.querySelector(".game-card");
 
 function reset() {
     hasFlipped = false;
