@@ -32,7 +32,7 @@ var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 var thing = document.getElementById("game-card");
 var node = document.querySelectorAll(".cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
-var time = 5;
+var time;
 let restart = document.getElementById("restart");
 let restartIcon = document.getElementById("restart-icon");
 let element = document.querySelector(".game-card");
@@ -66,13 +66,48 @@ function clickRestartButton() {
         restartIcon.style.transition = "transform 0.5s";
     }
     if (easyModus === true){
-        timerDiv.innerHTML = "Timer: 5";
-        time = 5;
+        clearInterval(myVar);
+        setTimeout(function (){
+            timerDiv.innerHTML = "Timer: 30";
+            time = 30;
+        }, 500);
+        
     }
 }
 
-function variableX(){
-    var x = setInterval(function () {
+function move() {
+  document.getElementById("timer").innerHTML = "Timer: " + time;
+    time = time - 1;
+  var id = setInterval(frame, 1000);
+  function frame() {
+    if (time < 0) {
+      clearInterval(id);
+    } 
+  }
+}
+
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+    document.getElementById("timer").innerHTML = "Timer: " + time;
+    time = time - 1;
+    if(time < 0){
+        myStopFunction();
+    }
+    if(restartWasClicked == true){
+        myStopFunction();
+        console.log("You clicked");
+    }
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+
+
+function timerStartEs() {
+        var time = 30;
+        var x = setInterval(function () {
         document.getElementById("timer").innerHTML = "Timer: " + time;
         time = time - 1;
         if(time < 0){
@@ -81,11 +116,6 @@ function variableX(){
         timer = false;
     }
     }, 1000);
-}
-
-function timerStartEs() {
-        var time = 5;
-        variableX();
 }
 
 function timerStartMd() {
@@ -205,6 +235,7 @@ function toggleHd() {
 }
 
 function restartGame() {
+    reset();
     if (easyModus == true) {
         restart.addEventListener("click", easyMode);
         restart.removeEventListener("click", hardMode);
@@ -333,7 +364,7 @@ function cardFlip() {
 function timerStart(){
     if (integer === 0){
         if (easyModus === true) {
-            timerStartEs();
+            move();
         }
         if (mediumModus === true) {
             timerStartMd();
