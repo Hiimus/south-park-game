@@ -14,16 +14,6 @@ body {
   overflow: hidden;
 }
 
-.sp-card {
-    min-width: 50px;
-    max-height: 80px;
-    
-}
-
-.sp-logo {
-    max-width: 200px;
-    margin-top: 20px;
-}
 
 .btn-menu {
     margin-top: 10px;
@@ -121,11 +111,6 @@ img {
     margin: auto;
 }
 
-.input-message {
-    height: 400px;
-    width: 700px;
-}
-
 .modal {
     font-family: 'Alfa Slab One', cursive, sans-serif;
 }
@@ -170,3 +155,21 @@ img {
 #restart-icon {
     transform: scale(1);
 }
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: -webkit-fill-available!important;
+    
+  }
+  .game-board {
+      height: 320px!important;
+      width: 320px!important;
+  }
+  .front-side,
+.back-side {
+    padding: 10px!important;
+}
+}
+
+
+
