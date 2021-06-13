@@ -32,6 +32,7 @@ var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 var thing = document.getElementById("game-card");
 var node = document.querySelectorAll(".cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
+var time = 5;
 let restart = document.getElementById("restart");
 let restartIcon = document.getElementById("restart-icon");
 let element = document.querySelector(".game-card");
@@ -49,23 +50,42 @@ restartIcon.addEventListener("mouseleave", restartRotateBack);
 restartIcon.addEventListener("click", clickRestartButton);
 cards.forEach(board => board.addEventListener('click', cardFlip));
 
-function timerStartEs() {
-        var time = 5;
-        var x = setInterval(function () {
+function resetFlipCounter() {
+    integer = 0;
+    int.innerHTML = "Flips: 0";
+}
+
+function clickRestartButton() {
+    
+    restartWasClicked = true;
+    resetFlipCounter();
+    restartIcon.style.transform = "scale(1.5)";
+    hover = true;
+    if (hover == true) {
+        restartIcon.style.transform = "rotate(800deg)";
+        restartIcon.style.transition = "transform 0.5s";
+    }
+    if (easyModus === true){
+        timerDiv.innerHTML = "Timer: 5";
+        time = 5;
+    }
+}
+
+function variableX(){
+    var x = setInterval(function () {
         document.getElementById("timer").innerHTML = "Timer: " + time;
         time = time - 1;
-
         if(time < 0){
         clearInterval(x);
         console.log("You lost m8");
         timer = false;
     }
-    if(restartWasClicked === true) {
-        clearInterval(x);
-        timerDiv.innerHTML = "Timer: 5";
-        timer = false;
-    }
     }, 1000);
+}
+
+function timerStartEs() {
+        var time = 5;
+        variableX();
 }
 
 function timerStartMd() {
@@ -76,7 +96,7 @@ function timerStartMd() {
 
         if(time < 0){
         clearInterval(x);
-        alert("You lost m8");
+        console.log("You lost m8");
     }
     }, 1000);
 }
@@ -108,6 +128,7 @@ function easyMode() {
     selectedEasy();
     shuffleCardsEs();
     displayNoneEasy();
+    resetFlipCounter();
 }
 
 function checkIfWonEasy() {
@@ -147,6 +168,7 @@ function mediumMode() {
     selectedMedium();
     shuffleCardsMd();
     displayNoneMedium();
+    resetFlipCounter();
 }
 
 function checkIfWonMedium() {
@@ -160,6 +182,7 @@ function hardMode() {
     checkIfWonHard();
     selectedHard();
     shuffleCardsHd()
+    resetFlipCounter();
 }
 
 function checkIfWonHard() {
@@ -213,21 +236,6 @@ function restartRotateBack() {
     }
 }
 
-function clickRestartButton() {
-    restartWasClicked = true;
-    integer = 0;
-    int.innerHTML = "Flips: 0";
-    restartIcon.style.transform = "scale(1.5)";
-    hover = true;
-    if (hover == true) {
-        restartIcon.style.transform = "rotate(800deg)";
-        restartIcon.style.transition = "transform 0.5s";
-    }
-    if (easyModus === true){
-        timerDiv.innerHTML = "Timer: 5";
-        time = 5;
-    }
-}
 
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
@@ -254,10 +262,13 @@ function selectedHard() {
 }
 
 function shuffleCardsEs() {
-    cards.forEach(sign => {
+    setTimeout(function () {
+        cards.forEach(sign => {
         let randomPositions = Math.floor(Math.random() * 12);
         sign.style.order = randomPositions;
     });
+    }, 500);
+    
 };
 
 function shuffleCardsMd() {
