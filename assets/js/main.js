@@ -39,6 +39,11 @@ let element = document.querySelector(".game-card");
 let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
+let reseted = false;
+var audio1 = new Audio("assets/audio/transition.mp3");
+var audio2 = new Audio("assets/audio/howdy-ho.mp3");
+var audio3 = new Audio("assets/audio/nice.mp3");
+
 
 easy.addEventListener('click', easyMode);
 medium.addEventListener('click', mediumMode);
@@ -66,44 +71,12 @@ function clickRestartButton() {
         restartIcon.style.transition = "transform 0.5s";
     }
     if (easyModus === true){
-        clearInterval(myVar);
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 30";
-            time = 30;
         }, 500);
         
     }
 }
-
-function move() {
-  document.getElementById("timer").innerHTML = "Timer: " + time;
-    time = time - 1;
-  var id = setInterval(frame, 1000);
-  function frame() {
-    if (time < 0) {
-      clearInterval(id);
-    } 
-  }
-}
-
-var myVar = setInterval(myTimer, 1000);
-
-function myTimer() {
-    document.getElementById("timer").innerHTML = "Timer: " + time;
-    time = time - 1;
-    if(time < 0){
-        myStopFunction();
-    }
-    if(restartWasClicked == true){
-        myStopFunction();
-        console.log("You clicked");
-    }
-}
-
-function myStopFunction() {
-  clearInterval(myVar);
-}
-
 
 function timerStartEs() {
         var time = 30;
@@ -113,45 +86,60 @@ function timerStartEs() {
         if(time < 0){
         clearInterval(x);
         console.log("You lost m8");
-        timer = false;
+        
     }
     }, 1000);
 }
 
 function timerStartMd() {
-        var time = 10;
+        var time = 45;
         var x = setInterval(function () {
         document.getElementById("timer").innerHTML = "Timer: " + time;
         time = time - 1;
-
         if(time < 0){
         clearInterval(x);
         console.log("You lost m8");
+        
     }
     }, 1000);
 }
 
 function timerStartHd() {
-        var time = 12;
+        var time = 59;
         var x = setInterval(function () {
-        timerDiv.innerHTML = "Timer: " + time;
+        document.getElementById("timer").innerHTML = "Timer: " + time;
         time = time - 1;
-
         if(time < 0){
         clearInterval(x);
-        alert("You lost m8");
+        console.log("You lost m8");
+        
     }
     }, 1000);
 }
 
-function checkTheTimer() {
-    if (timer = true){
-        timerStartEs();
+function timerStart(){
+    if (integer === 0){
+        if (easyModus === true) {
+            timerStartEs();
+        }
+        if (mediumModus === true) {
+            timerStartMd();
+        }
+        if (hardModus === true) {
+            timerStartHd();
+        }
     }
 }
-    
+
+function flipCounter(){
+    integer += 1;
+    int.innerHTML = 'Flips: ' + integer;
+}    
+
+
 function easyMode() {
     console.log('You selected easy');
+    reseted = true;
     checkIfWonEasy();
     toggleMd();
     toggleHd();
@@ -167,29 +155,7 @@ function checkIfWonEasy() {
     hardModus = false;
 }
 
-function displayNoneEasy() {
-    divsArr[12].style.display = "none";
-    divsArr[13].style.display = "none";
-    divsArr[14].style.display = "none";
-    divsArr[15].style.display = "none";
-    divsArr[16].style.display = "none";
-    divsArr[17].style.display = "none";
-    divsArr[18].style.display = "none";
-    divsArr[19].style.display = "none";
-    divsArr[20].style.display = "none";
-    divsArr[21].style.display = "none";
-    divsArr[22].style.display = "none";
-    divsArr[23].style.display = "none";
-}
 
-function displayNoneMedium() {
-    divsArr[18].style.display = "none";
-    divsArr[19].style.display = "none";
-    divsArr[20].style.display = "none";
-    divsArr[21].style.display = "none";
-    divsArr[22].style.display = "none";
-    divsArr[23].style.display = "none";
-}
 
 function mediumMode() {
     console.log('You selected medium');
@@ -223,6 +189,7 @@ function checkIfWonHard() {
 
 function startingGame() {
     $("#exampleModal").modal('hide');
+    audio1.play();
 }
 
 function toggleMd() {
@@ -235,6 +202,7 @@ function toggleHd() {
 }
 
 function restartGame() {
+    
     reset();
     if (easyModus == true) {
         restart.addEventListener("click", easyMode);
@@ -318,8 +286,10 @@ function shuffleCardsHd() {
 
 function modalWhenWinningEasy(){
     if (nodesSameClass.length === 11 && easyModus == true) {
+        
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
+            audio2.play();
         }, 1200);
     }
 }
@@ -328,6 +298,7 @@ function modalWhenWinningMedium(){
     if (nodesSameClass.length === 17 && mediumModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
+            audio2.play();
             winningModal.innerHTML = "YOU WON MEDIUM";
         }, 1200);
     }
@@ -337,6 +308,7 @@ function modalWhenWinningHard(){
     if (nodesSameClass.length === 23 && hardModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
+            audio2.play();
             winningModal.innerHTML = "YOU WON HARD";
         }, 1200);
     }
@@ -361,27 +333,11 @@ function cardFlip() {
     checkMatching();
 }
 
-function timerStart(){
-    if (integer === 0){
-        if (easyModus === true) {
-            move();
-        }
-        if (mediumModus === true) {
-            timerStartMd();
-        }
-        if (hardModus === true) {
-            timerStartHd();
-        }
-    }
-}
 
-function flipCounter(){
-    integer += 1;
-    int.innerHTML = 'Flips: ' + integer;
-}
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
+        audio3.play();
         firstSign.style.transform = "rotateY(180deg)";
         setTimeout(function () {
             secondSign.style.transform = "rotateY(180deg)";
@@ -417,4 +373,28 @@ function reset() {
     lock = false;
     firstSign = null;
     secondSign = null;
+}
+
+function displayNoneEasy() {
+    divsArr[12].style.display = "none";
+    divsArr[13].style.display = "none";
+    divsArr[14].style.display = "none";
+    divsArr[15].style.display = "none";
+    divsArr[16].style.display = "none";
+    divsArr[17].style.display = "none";
+    divsArr[18].style.display = "none";
+    divsArr[19].style.display = "none";
+    divsArr[20].style.display = "none";
+    divsArr[21].style.display = "none";
+    divsArr[22].style.display = "none";
+    divsArr[23].style.display = "none";
+}
+
+function displayNoneMedium() {
+    divsArr[18].style.display = "none";
+    divsArr[19].style.display = "none";
+    divsArr[20].style.display = "none";
+    divsArr[21].style.display = "none";
+    divsArr[22].style.display = "none";
+    divsArr[23].style.display = "none";
 }
