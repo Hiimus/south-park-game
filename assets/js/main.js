@@ -22,10 +22,13 @@ let startGame = document.getElementById('start-game');
 
 let timerDiv = document.getElementById("timer");
 let timer = false;
-
+let cardFlipped = document.querySelectorAll(".cardFlipped");
 let hover = false;
 let restartWasClicked = false;
-
+var parent = document.getElementById("game-board");
+var nodesSameClass = parent.getElementsByClassName("cardFlipped");
+var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
+var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
 var thing = document.getElementById("game-card");
 var node = document.querySelectorAll(".cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
