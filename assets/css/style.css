@@ -138,7 +138,7 @@ img {
 }
 
 .modal-content-background {
-    background-color: white;
+    background-color: #99e8e7;
     z-index: 101;
 }
 
@@ -176,5 +176,17 @@ img {
 }
 }
 
+.icon-div{
+    position: relative;
+}
 
+#mute, #volume {
+    position: absolute;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.muted {
+    display: none;
+}
 

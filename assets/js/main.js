@@ -40,9 +40,33 @@ let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
 let reseted = false;
-var audio1 = new Audio("assets/audio/transition.mp3");
-var audio2 = new Audio("assets/audio/howdy-ho.mp3");
-var audio3 = new Audio("assets/audio/nice.mp3");
+
+let audio = [new Audio("assets/audio/transition.mp3"), new Audio("assets/audio/howdy-ho.mp3"), new Audio("assets/audio/nice.mp3")];
+
+//var audio1 = new Audio("assets/audio/transition.mp3");
+//var audio2 = new Audio("assets/audio/howdy-ho.mp3");
+//var audio3 = new Audio("assets/audio/nice.mp3");
+
+let mute = document.getElementById("mute");
+let volume = document.getElementById("volume");
+
+mute.addEventListener("click", muted);
+volume.addEventListener("click", muted);
+
+function muted() {
+    mute.classList.toggle('muted');
+    volume.classList.toggle('muted');
+    if(audio[0].muted && audio[1].muted && audio[2].muted){
+            audio[0].muted = false; 
+            audio[1].muted = false;
+            audio[2].muted = false;
+	    } else {
+		    audio[0].muted = true; 
+            audio[1].muted = true;
+            audio[2].muted = true;
+	    }
+	
+}
 
 
 easy.addEventListener('click', easyMode);
@@ -54,6 +78,8 @@ restartIcon.addEventListener("mouseover", restartRotate);
 restartIcon.addEventListener("mouseleave", restartRotateBack);
 restartIcon.addEventListener("click", clickRestartButton);
 cards.forEach(board => board.addEventListener('click', cardFlip));
+
+
 
 function resetFlipCounter() {
     integer = 0;
@@ -189,7 +215,7 @@ function checkIfWonHard() {
 
 function startingGame() {
     $("#exampleModal").modal('hide');
-    audio1.play();
+    audio[0].play();
 }
 
 function toggleMd() {
@@ -289,7 +315,7 @@ function modalWhenWinningEasy(){
         
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
-            audio2.play();
+            audio[1].play();
         }, 1200);
     }
 }
@@ -298,7 +324,7 @@ function modalWhenWinningMedium(){
     if (nodesSameClass.length === 17 && mediumModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
-            audio2.play();
+            audio[1].play();
             winningModal.innerHTML = "YOU WON MEDIUM";
         }, 1200);
     }
@@ -308,7 +334,7 @@ function modalWhenWinningHard(){
     if (nodesSameClass.length === 23 && hardModus == true) {
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
-            audio2.play();
+            audio[1].play();
             winningModal.innerHTML = "YOU WON HARD";
         }, 1200);
     }
@@ -337,7 +363,7 @@ function cardFlip() {
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
-        audio3.play();
+        audio[2].play();
         firstSign.style.transform = "rotateY(180deg)";
         setTimeout(function () {
             secondSign.style.transform = "rotateY(180deg)";
