@@ -120,12 +120,12 @@ img {
     font-family: 'Alfa Slab One', cursive, sans-serif;
 }
 
+.modal-content {
+    border: none!important;
+}
+
 .menu {
-    background-color: #edeeed;
-    background: url(../img/sp-group-edited.png) bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 100;
+    background-color: #8be4e2;
 }
 
 .winning-modal {
@@ -138,8 +138,11 @@ img {
 }
 
 .modal-content-background {
-    background-color: #99e8e7;
-    z-index: 101;
+     background: url(../img/sp-group-3.png) bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    border-radius: .3rem
 }
 
 .modal-header {
@@ -180,13 +183,45 @@ img {
     position: relative;
 }
 
+#mute:hover, #volume:hover {
+    transform: scale(1.5);
+    transition: transform .1s;
+}
+
 #mute, #volume {
     position: absolute;
     margin-top: 20px;
     cursor: pointer;
+    transform: scale(1);
 }
 
 .muted {
     display: none;
 }
 
+h4, h5, h6 {
+    letter-spacing: 1.5px;
+}
+
+#easy, #medium, #hard {
+    transform: scale(1);
+    letter-spacing: 1.5px;
+}
+
+#easy:hover,
+#medium:hover,
+#hard:hover {
+    transform: scale(1.2); 
+    transition: transform .1s;
+}
+
+#easy:active,
+#medium:active,
+#hard:active {
+    transform: scale(1.5); 
+    transition: transform .1s;
+}
+
+#easy:visited {
+    border: 1px solid red;
+}

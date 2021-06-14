@@ -19,7 +19,6 @@ let easy = document.getElementById('easy');
 let medium = document.getElementById('medium');
 let hard = document.getElementById('hard');
 let startGame = document.getElementById('start-game');
-
 let timerDiv = document.getElementById("timer");
 let timer = false;
 let cardFlipped = document.querySelectorAll(".cardFlipped");
@@ -40,19 +39,25 @@ let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
 let reseted = false;
-
-let audio = [new Audio("assets/audio/transition.mp3"), new Audio("assets/audio/howdy-ho.mp3"), new Audio("assets/audio/nice.mp3")];
-
-//var audio1 = new Audio("assets/audio/transition.mp3");
-//var audio2 = new Audio("assets/audio/howdy-ho.mp3");
-//var audio3 = new Audio("assets/audio/nice.mp3");
-
 let mute = document.getElementById("mute");
 let volume = document.getElementById("volume");
+let audio = [new Audio("assets/audio/transition.mp3"), new Audio("assets/audio/howdy-ho.mp3"), new Audio("assets/audio/nice.mp3")];
 
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
+easy.addEventListener('click', easyMode);
+medium.addEventListener('click', mediumMode);
+hard.addEventListener('click', hardMode);
+startGame.addEventListener('click', startingGame);
+restart.addEventListener("mouseover", restartGame);
+restartIcon.addEventListener("mouseover", restartRotate);
+restartIcon.addEventListener("mouseleave", restartRotateBack);
+restartIcon.addEventListener("click", clickRestartButton);
+cards.forEach(board => board.addEventListener('click', cardFlip));
 
+
+
+//Inspiration from https://www.developphp.com/video/JavaScript/Audio-Play-Pause-Mute-Buttons-Tutorial on how to make volume control
 function muted() {
     mute.classList.toggle('muted');
     volume.classList.toggle('muted');
@@ -68,16 +73,6 @@ function muted() {
 	
 }
 
-
-easy.addEventListener('click', easyMode);
-medium.addEventListener('click', mediumMode);
-hard.addEventListener('click', hardMode);
-startGame.addEventListener('click', startingGame);
-restart.addEventListener("mouseover", restartGame);
-restartIcon.addEventListener("mouseover", restartRotate);
-restartIcon.addEventListener("mouseleave", restartRotateBack);
-restartIcon.addEventListener("click", clickRestartButton);
-cards.forEach(board => board.addEventListener('click', cardFlip));
 
 
 
@@ -173,6 +168,14 @@ function easyMode() {
     shuffleCardsEs();
     displayNoneEasy();
     resetFlipCounter();
+    modalColorEs()
+    
+}
+
+function modalColorEs() {
+    easy.style.border = "1px solid red";
+    medium.style.border = "none";
+    hard.style.border = "none";
 }
 
 function checkIfWonEasy() {
@@ -191,6 +194,13 @@ function mediumMode() {
     shuffleCardsMd();
     displayNoneMedium();
     resetFlipCounter();
+    modalColorMd();
+}
+
+function modalColorMd() {
+    easy.style.border = "none";
+    medium.style.border = "1px solid red";
+    hard.style.border = "none";
 }
 
 function checkIfWonMedium() {
@@ -205,6 +215,13 @@ function hardMode() {
     selectedHard();
     shuffleCardsHd();
     resetFlipCounter();
+    modalColorHd();
+}
+
+function modalColorHd() {
+    easy.style.border = "none";
+    medium.style.border = "none";
+    hard.style.border = "1px solid red";
 }
 
 function checkIfWonHard() {
