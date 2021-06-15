@@ -262,5 +262,8 @@ h4, h5, h6 {
 }
 
 .modal-backdrop {
-        background-color: #0269f7;
+        /* background-color: #0269f7; */
+        
+    background: url(../img/sp-background-1.png) center center / cover no-repeat fixed;
+    overflow: hidden;
 }
