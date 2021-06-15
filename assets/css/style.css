@@ -169,13 +169,37 @@ img {
     width: -webkit-fill-available!important;
     
   }
+
   .game-board {
       height: 320px!important;
       width: 320px!important;
   }
+
   .front-side,
 .back-side {
     padding: 10px!important;
+}
+
+.modal-dialog-centered {
+    align-items: start;
+}
+
+.modal-content-background {
+    height: 500px;
+}
+
+.modal-body {
+    padding: 1px;
+}
+    
+#easy:active,
+#medium:active,
+#hard:active {
+    transform: scale(1.2); 
+}
+
+.btn {
+    padding: .2rem .5rem;
 }
 }
 
@@ -231,4 +255,12 @@ h4, h5, h6 {
 
 #easy:visited {
     border: 1px solid red;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+.modal-backdrop {
+        background-color: #0269f7;
 }
