@@ -203,9 +203,16 @@ h4, h5, h6 {
     letter-spacing: 1.5px;
 }
 
+#flips, #timer{
+    letter-spacing: 1.5px;
+}
+
+.btn {
+    letter-spacing: 1.5px;
+}
+
 #easy, #medium, #hard {
     transform: scale(1);
-    letter-spacing: 1.5px;
 }
 
 #easy:hover,

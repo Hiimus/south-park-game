@@ -173,9 +173,12 @@ function easyMode() {
 }
 
 function modalColorEs() {
-    easy.style.border = "1px solid red";
+    easy.style.border = "1px solid #f77979";
+    easy.style.backgroundColor = "#f77979";
     medium.style.border = "none";
+    medium.style.backgroundColor = "";
     hard.style.border = "none";
+    hard.style.backgroundColor = "";
 }
 
 function checkIfWonEasy() {
@@ -199,8 +202,11 @@ function mediumMode() {
 
 function modalColorMd() {
     easy.style.border = "none";
-    medium.style.border = "1px solid red";
+    easy.style.backgroundColor = "";
+    medium.style.border = "1px solid #f77979";
+    medium.style.backgroundColor = "#f77979";
     hard.style.border = "none";
+    hard.style.backgroundColor = "";
 }
 
 function checkIfWonMedium() {
@@ -220,8 +226,11 @@ function hardMode() {
 
 function modalColorHd() {
     easy.style.border = "none";
+    easy.style.backgroundColor = "";
     medium.style.border = "none";
-    hard.style.border = "1px solid red";
+    medium.style.backgroundColor = "";
+    hard.style.border = "1px solid #f77979";
+    hard.style.backgroundColor = "#f77979";
 }
 
 function checkIfWonHard() {
