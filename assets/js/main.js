@@ -41,7 +41,14 @@ let hasFlipped = false;
 let reseted = false;
 let mute = document.getElementById("mute");
 let volume = document.getElementById("volume");
-let audio = [new Audio("assets/audio/transition.mp3"), new Audio("assets/audio/howdy-ho.mp3"), new Audio("assets/audio/nice.mp3")];
+let menu = document.getElementById("menu");
+let audio = 
+[new Audio("assets/audio/transition.mp3"), 
+new Audio("assets/audio/howdy-ho.mp3"), 
+new Audio("assets/audio/nice.mp3"), 
+new Audio("assets/audio/flip.flac"),
+new Audio("assets/audio/wrong.mp3"),
+new Audio("assets/audio/click.mp3")];
 
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
@@ -54,6 +61,7 @@ restartIcon.addEventListener("mouseover", restartRotate);
 restartIcon.addEventListener("mouseleave", restartRotateBack);
 restartIcon.addEventListener("click", clickRestartButton);
 cards.forEach(board => board.addEventListener('click', cardFlip));
+menu.addEventListener("click", menuClick);
 
 
 
@@ -74,7 +82,9 @@ function muted() {
 }
 
 
-
+function menuClick() {
+    audio[5].play();
+}
 
 function resetFlipCounter() {
     integer = 0;
@@ -169,6 +179,7 @@ function easyMode() {
     displayNoneEasy();
     resetFlipCounter();
     modalColorEs()
+    audio[5].play();
     
 }
 
@@ -198,6 +209,7 @@ function mediumMode() {
     displayNoneMedium();
     resetFlipCounter();
     modalColorMd();
+    audio[5].play();
 }
 
 function modalColorMd() {
@@ -222,6 +234,7 @@ function hardMode() {
     shuffleCardsHd();
     resetFlipCounter();
     modalColorHd();
+    audio[5].play();
 }
 
 function modalColorHd() {
@@ -367,6 +380,7 @@ function modalWhenWinningHard(){
 }
 
 function cardFlip() {
+    audio[3].play();
     modalWhenWinningEasy();
     modalWhenWinningMedium();
     modalWhenWinningHard();
@@ -401,6 +415,7 @@ function checkMatching() {
     } else {
         // Not a match  
         notMatching();
+        audio[4].play();
     }
 }
 
