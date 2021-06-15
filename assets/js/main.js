@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    //cards.forEach(sign => sign.style.display = 'block');
-    //displayNoneEasy();
-    easyMode();
     $("#exampleModal").modal('show');
 });
 
@@ -42,6 +39,9 @@ let reseted = false;
 let mute = document.getElementById("mute");
 let volume = document.getElementById("volume");
 let menu = document.getElementById("menu");
+let startWasClicked = false;
+let wasDifficultyClicked = false;
+let modalContent = document.getElementById("modal-content")
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
 new Audio("assets/audio/howdy-ho.mp3"), 
@@ -56,6 +56,7 @@ easy.addEventListener('click', easyMode);
 medium.addEventListener('click', mediumMode);
 hard.addEventListener('click', hardMode);
 startGame.addEventListener('click', startingGame);
+startGame.addEventListener('mouseover', startingGameCheck);
 restart.addEventListener("mouseover", restartGame);
 restartIcon.addEventListener("mouseover", restartRotate);
 restartIcon.addEventListener("mouseleave", restartRotateBack);
@@ -180,7 +181,7 @@ function easyMode() {
     resetFlipCounter();
     modalColorEs()
     audio[5].play();
-    
+    wasDifficultyClicked = true;
 }
 
 function modalColorEs() {
@@ -210,6 +211,7 @@ function mediumMode() {
     resetFlipCounter();
     modalColorMd();
     audio[5].play();
+    wasDifficultyClicked = true;
 }
 
 function modalColorMd() {
@@ -235,6 +237,7 @@ function hardMode() {
     resetFlipCounter();
     modalColorHd();
     audio[5].play();
+    wasDifficultyClicked = true;
 }
 
 function modalColorHd() {
@@ -255,6 +258,21 @@ function checkIfWonHard() {
 function startingGame() {
     $("#exampleModal").modal('hide');
     audio[0].play();
+    startWasClicked = true;
+}
+
+function startingGameCheck() {
+    if(wasDifficultyClicked === true){
+        console.log("youre g2g");
+        startGame.addEventListener('click', startingGame);
+    } else {
+        startGame.removeEventListener('click', startingGame);
+        console.log("Please select difficulty, or else PC Principal will yell at your face!!");
+    }
+}
+
+function startingGameCheckz() {
+    
 }
 
 function toggleMd() {
