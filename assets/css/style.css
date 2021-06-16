@@ -18,6 +18,7 @@ body {
 .btn-menu {
     margin-top: 10px;
     font-family: 'Alfa Slab One', cursive, sans-serif;
+    font-size: 25px;
 }
 
 .btn:focus {
@@ -39,6 +40,28 @@ body {
 
 img {
     width: 100px;
+}
+
+.disclaimer {
+    font-size: 12px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    transform: scale(1);
+}
+
+a:active {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.fa-github:hover {
+    transform: scale(1.5);
 }
 
 .game-board {
@@ -114,6 +137,8 @@ img {
     width: 750px;
     display: flex;
     margin: auto;
+    margin-top: 10vh;
+    font-size: 20px;
 }
 
 .modal {
