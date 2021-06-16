@@ -269,12 +269,14 @@ h4, h5, h6 {
     overflow: hidden;
 }
 
-.modal-dialog-woo {
-        z-index: 200;
-    width: 300px;
-    margin-left: 15%;
-    margin-top: 50%;
+.bubble {
+    width: 250px!important;
+    position: absolute;
+    z-index: 103;
+    margin-left: 10%;
 }
+
+
 
 /*Making an image shake, code from https://www.w3schools.com/howto/howto_css_shake_image.asp */
 .pc {

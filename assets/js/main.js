@@ -43,6 +43,7 @@ let startWasClicked = false;
 let wasDifficultyClicked = false;
 let modalContent = document.getElementById("modal-content")
 let pc = document.getElementById("pc");
+let bubble = document.getElementById("bubble");
 let modalContentBackground = document.getElementById("modal-background");
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
@@ -50,7 +51,8 @@ new Audio("assets/audio/howdy-ho.mp3"),
 new Audio("assets/audio/nice.mp3"), 
 new Audio("assets/audio/flip.flac"),
 new Audio("assets/audio/wrong.mp3"),
-new Audio("assets/audio/click.mp3")];
+new Audio("assets/audio/click.mp3"),
+new Audio("assets/audio/pc-corrects-sp.mp3")];
 
 modalContentBackground.addEventListener("click", clickedAgain);
 mute.addEventListener("click", muted);
@@ -88,6 +90,8 @@ function muted() {
 
 function menuClick() {
     audio[5].play();
+    wasDifficultyClicked = false;
+    modalColorReset();
 }
 
 function resetFlipCounter() {
@@ -187,6 +191,15 @@ function easyMode() {
     wasDifficultyClicked = true;
 }
 
+function modalColorReset() {
+    easy.style.border = "none";
+    easy.style.backgroundColor = "";
+    medium.style.border = "none";
+    medium.style.backgroundColor = "";
+    hard.style.border = "none";
+    hard.style.backgroundColor = "";
+}
+
 function modalColorEs() {
     easy.style.border = "1px solid #f77979";
     easy.style.backgroundColor = "#f77979";
@@ -267,18 +280,22 @@ function startingGame() {
 
 function clickedAgain() {
     if(!wasDifficultyClicked){
-        console.log("Noooo");
-        pc.classList.remove("d-none");
+    pc.classList.remove("d-none");
+    bubble.classList.remove("d-none");
+    audio[6].play();
+        setTimeout(function(){
+            pc.classList.add("d-none");
+            bubble.classList.add("d-none");
+        }, 3000);
+        
     }
 }
 
 function startingGameCheck() {
     if(wasDifficultyClicked === true){
-        console.log("youre g2g");
         startGame.addEventListener('click', startingGame);
     } else {
         startGame.removeEventListener('click', startingGame);
-        console.log("WOO WOO WOO! Please select a difficulty.");
         PcP = true;
         
     }
