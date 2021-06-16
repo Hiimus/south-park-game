@@ -42,6 +42,8 @@ let menu = document.getElementById("menu");
 let startWasClicked = false;
 let wasDifficultyClicked = false;
 let modalContent = document.getElementById("modal-content")
+let pc = document.getElementById("pc");
+let modalContentBackground = document.getElementById("modal-background");
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
 new Audio("assets/audio/howdy-ho.mp3"), 
@@ -50,6 +52,7 @@ new Audio("assets/audio/flip.flac"),
 new Audio("assets/audio/wrong.mp3"),
 new Audio("assets/audio/click.mp3")];
 
+modalContentBackground.addEventListener("click", clickedAgain);
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
 easy.addEventListener('click', easyMode);
@@ -259,6 +262,14 @@ function startingGame() {
     $("#exampleModal").modal('hide');
     audio[0].play();
     startWasClicked = true;
+    
+}
+
+function clickedAgain() {
+    if(!wasDifficultyClicked){
+        console.log("Noooo");
+        pc.classList.remove("d-none");
+    }
 }
 
 function startingGameCheck() {
@@ -267,12 +278,10 @@ function startingGameCheck() {
         startGame.addEventListener('click', startingGame);
     } else {
         startGame.removeEventListener('click', startingGame);
-        console.log("Please select difficulty, or else PC Principal will yell at your face!!");
+        console.log("WOO WOO WOO! Please select a difficulty.");
+        PcP = true;
+        
     }
-}
-
-function startingGameCheckz() {
-    
 }
 
 function toggleMd() {
