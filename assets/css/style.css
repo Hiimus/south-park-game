@@ -164,45 +164,7 @@ img {
     transform: scale(1);
 }
 
-@media only screen and (max-width: 768px) {
-  img {
-    width: -webkit-fill-available!important;
-    
-  }
 
-  .game-board {
-      height: 320px!important;
-      width: 320px!important;
-  }
-
-  .front-side,
-.back-side {
-    padding: 10px!important;
-}
-
-.modal-dialog-centered {
-    align-items: start;
-    position: relative;
-}
-
-.modal-content-background {
-    height: 500px;
-}
-
-.modal-body {
-    padding: 1px;
-}
-    
-#easy:active,
-#medium:active,
-#hard:active {
-    transform: scale(1.2); 
-}
-
-.btn {
-    padding: .2rem .5rem;
-}
-}
 
 .icon-div{
     position: relative;
@@ -270,7 +232,7 @@ h4, h5, h6 {
 }
 
 .bubble {
-    width: 250px!important;
+    width: 250px;
     position: absolute;
     z-index: 103;
     margin-left: 10%;
@@ -280,7 +242,7 @@ h4, h5, h6 {
 
 /*Making an image shake, code from https://www.w3schools.com/howto/howto_css_shake_image.asp */
 .pc {
-    width: 250px!important;
+    width: 250px;
     position: absolute;
     z-index: 103;
     animation: shake 0.5s;
@@ -299,4 +261,60 @@ h4, h5, h6 {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media only screen and (max-width: 768px) {
+  
+  .bubble{
+      width: 180px!important;
+      margin-left: 5%!important;
+  }
+
+  .pc {
+      width: 170px!important;
+      margin-top: 15%!important;
+  }
+
+  .game-board {
+      height: 320px!important;
+      width: 320px!important;
+  }
+
+    .front-side,
+    .back-side {
+        padding: 15px 5px 15px 5px!important;
+    }
+
+    .modal-dialog-centered {
+        align-items: start;
+        position: relative;
+    }
+
+    .modal-content-background {
+        height: 500px;
+    }
+
+    .modal-body {
+        padding: 1px;
+    }
+    
+    #easy:active,
+    #medium:active,
+    #hard:active {
+        transform: scale(1.2); 
+    }
+
+    .btn {
+        padding: .2rem .5rem;
+    }
+
+    .btn-menu {
+        font-size: 12px;
+    }
+
+    .row-header {
+        font-size: 12px;
+        --bs-gutter-x: 0;
+        width: 300px;
+    }
 }
