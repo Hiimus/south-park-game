@@ -1,8 +1,10 @@
+//Email service provided from emailjs
+
 function sendMail(contactForm) {
     emailjs.send("service_dt2dr7c", "south_park", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.emailaddress.value,
-        "project_request": contactForm.projectsummary.value
+        "project_request": contactForm.message.value
     })
     .then(
         function (response) {

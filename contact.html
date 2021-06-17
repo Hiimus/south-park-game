@@ -29,49 +29,49 @@
 
 <body>
 
+    <div class="text-center">
+        <a href="index.html"><img class="sp-logo-contact" src="assets/img/sp-logo.png" alt="South Park Logo"></a>
+    </div>
+
+    <div class="text-center text-above-form">
+        <h5>Feel free to use the form below to contact me</h5>
+    </div>
+
 
     <div class="center-form">
-                <form onsubmit="return sendMail(this);">
-                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
-                    <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/>
-                    <textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Project Description" required></textarea>
-                    <button type="submit" class="btn btn-secondary center-block">Send Project Request</button>
-                </form>
-            </div>
-
-
-    <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-4">
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
+        <form onsubmit="return sendMail(this);">
+            <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required />
+            <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email"
+                required />
+            <textarea rows="5" name="message" class="form-control" id="message" placeholder="Message"
+                required></textarea>
+            <button type="submit" class="btn btn-secondary center-block btn-contact">Submit Message</button>
+        </form>
     </div>
 
+
     <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-4">
-                <a href="index.html">Back to game</a>
+        <div class="row justify-content-end back-to-menu">
+            <div class="col-4 ">
+                <a href="index.html"><i class="fas fa-chevron-left"></i> Back to game menu</a>
             </div>
         </div>
     </div>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-6 disclaimer">
-                <p><strong>Disclaimer:</strong> This website is not made for commercial use. All images are downloaded
-                    from royalty free websites, however some of the sounds are not. Please feel free to contact me if
-                    there is anything you wish to report.</p>
-            </div>
-            <div class="col-6 ms-auto">
-                <a href="https://github.com/Hiimus/south-park-game" target="_blank"><i
-                        class="fab fa-github fa-lg"></i></a>
-            </div>
-        </div>
+
+
+    <div class="text-center github">
+        <a href="https://github.com/Hiimus/south-park-game" target="_blank"><i class="fab fa-github fa-lg"></i></a>
     </div>
 
-
+<div class="row justify-content-center">
+    <div class="disclaimer text-center">
+        <p><strong>Disclaimer:</strong> This website is not made for commercial use. <br>All images are downloaded
+            from royalty free websites, however some of the sounds are not. <br>Please feel free to contact me if
+            there is anything you wish to report.</p>
+    </div>
+</div>
 
 
     <!--Bootstrap script-->
@@ -80,7 +80,7 @@
         crossorigin="anonymous"></script>
 
 
-   
+
     <script src="assets/js/sendEmail.js" async></script>
 
 </body>
