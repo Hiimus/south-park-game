@@ -288,6 +288,9 @@ h4, h5, h6 {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+
+/*media queries for index.html*/
+
 @media only screen and (max-width: 768px) {
   
   .bubble{
@@ -368,11 +371,16 @@ h4, h5, h6 {
 }
 
 .back-to-menu {
-    font-family: 'Alfa Slab One', cursive, sans-serif;
     width: 750px;
     margin: auto;
+    --bs-gutter-x: 0;
+    align-items: center;
 }
 
+.btn-back {
+    font-family: 'Alfa Slab One', cursive, sans-serif;
+    text-align: end;
+}
 
 .disclaimer {
     position: fixed;
@@ -384,4 +392,54 @@ h4, h5, h6 {
     position: fixed;
     width: 100%;
     bottom: 100px;
+}
+
+/*media queries for contact.html*/
+
+@media only screen and (max-width: 768px) {
+    .sp-logo-contact{
+        width: 200px;
+    }
+
+    .text-above-form {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.center-form {
+    width: 300px;
+}
+
+.back-to-menu{
+    width: 300px;
+}
+
+
+.disclaimer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+.github {
+    position: static;
+    width: 100%;
+    bottom: 100px;
+    margin-top: 40px;
+}
+
+.btn-contact {
+    font-size: 12px;
+    
+}
+
+.btn-back {
+    font-size: 12px;
+    
+}
+
+.disclaimer {
+    font-size: 8px;
+}
+
 }
