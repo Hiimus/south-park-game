@@ -75,14 +75,22 @@ menu.addEventListener("click", menuClick);
 function muted() {
     mute.classList.toggle('muted');
     volume.classList.toggle('muted');
-    if(audio[0].muted && audio[1].muted && audio[2].muted){
+    if(audio[0].muted && audio[1].muted && audio[2].muted && audio[3].muted && audio[4].muted && audio[5].muted && audio[6].muted){
             audio[0].muted = false; 
             audio[1].muted = false;
             audio[2].muted = false;
+            audio[3].muted = false;
+            audio[4].muted = false;
+            audio[5].muted = false;
+            audio[6].muted = false;
 	    } else {
 		    audio[0].muted = true; 
             audio[1].muted = true;
             audio[2].muted = true;
+            audio[3].muted = true;
+            audio[4].muted = true;
+            audio[5].muted = true;
+            audio[6].muted = true;
 	    }
 	
 }
