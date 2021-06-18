@@ -467,17 +467,11 @@ h4, h5, h6 {
 
 
     .disclaimer {
-    position: static;
-    bottom: 0;
+    position: fixed;
+    bottom: 4%;
     width: 100%;
     }
 
-    .github {
-    position: static;
-    width: 100%;
-    bottom: 100px;
-    margin-top: 40px;
-    }
 
     .btn-contact {
     font-size: 12px;
