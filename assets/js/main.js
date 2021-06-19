@@ -95,11 +95,17 @@ function muted() {
 	
 }
 
+let menuWasClicked = false;
 
 function menuClick() {
     audio[5].play();
     wasDifficultyClicked = false;
     modalColorReset();
+    menuWasClicked = true;
+    clickRestartButton();
+    setTimeout(function () {
+        menuWasClicked = false;
+    },1000);
 }
 
 function resetFlipCounter() {
@@ -110,6 +116,12 @@ function resetFlipCounter() {
 function clickRestartButton() {
     
     restartWasClicked = true;
+    if(restartWasClicked === true){
+        setTimeout(function (){
+            restartWasClicked = false;
+        }, 1050);
+    }
+    
     resetFlipCounter();
     restartIcon.style.transform = "scale(1.5)";
     hover = true;
@@ -120,8 +132,18 @@ function clickRestartButton() {
     if (easyModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 30";
-        }, 500);
+        }, 1050);
         
+    }
+    if (mediumModus === true){
+        setTimeout(function (){
+            timerDiv.innerHTML = "Timer: 45";
+        }, 1050);
+    }
+    if (hardModus === true){
+        setTimeout(function (){
+            timerDiv.innerHTML = "Timer: 59";
+        }, 1050);
     }
 }
 
@@ -132,9 +154,16 @@ function timerStartEs() {
         time = time - 1;
         if(time < 0){
         clearInterval(x);
-        console.log("You lost m8");
-        
+        console.log("You lost m8");  
     }
+    if(restartWasClicked === true){
+        console.log("hola");
+        clearInterval(x);
+    }
+    if(menuWasClicked === true){
+            clickRestartButton();
+    }
+    
     }, 1000);
 }
 
@@ -148,6 +177,15 @@ function timerStartMd() {
         console.log("You lost m8");
         
     }
+    if(restartWasClicked === true){
+        console.log("hola");
+        clearInterval(x);
+    }
+    if(menuWasClicked === true){
+            clickRestartButton();
+    }
+    
+    
     }, 1000);
 }
 
@@ -161,6 +199,14 @@ function timerStartHd() {
         console.log("You lost m8");
         
     }
+    if(restartWasClicked === true){
+        console.log("hola");
+        clearInterval(x);
+    }
+    if(menuWasClicked === true){
+            clickRestartButton();
+    }
+    
     }, 1000);
 }
 
@@ -197,6 +243,11 @@ function easyMode() {
     modalColorEs()
     audio[5].play();
     wasDifficultyClicked = true;
+    integer = 0;
+    setTimeout(function () {
+        timerDiv.innerHTML = "Timer: 30";
+    }, 500);
+    
 }
 
 function modalColorReset() {
@@ -236,6 +287,10 @@ function mediumMode() {
     modalColorMd();
     audio[5].play();
     wasDifficultyClicked = true;
+    integer = 0;    
+    setTimeout(function () {
+        timerDiv.innerHTML = "Timer: 45";
+    }, 500);
 }
 
 function modalColorMd() {
@@ -262,6 +317,10 @@ function hardMode() {
     modalColorHd();
     audio[5].play();
     wasDifficultyClicked = true;
+    setTimeout(function () {
+        timerDiv.innerHTML = "Timer: 59";
+    }, 500);
+    integer = 0;
 }
 
 function modalColorHd() {
