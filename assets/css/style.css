@@ -83,8 +83,15 @@ a:visited {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: all 0.4s ease;
-    background-color: rgb(180 185 178 / 50%);
+    background-color: rgb(180 185 178 / 0.5);
     border-radius: 5%;
+
+    -webkit-transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s;
+  -o-transform-style: preserve-3d;
+  -o-transition: -o-transform 0.5s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: -moz-transform 0.5s;
 }
 
 .game-card:active {
@@ -103,16 +110,26 @@ a:visited {
     width: 100%;
     padding: 25px;
     backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  
 }
 
 .front-side {
     transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 
 
 .cardFlipped {
     transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 
