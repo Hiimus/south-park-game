@@ -114,7 +114,7 @@ function resetFlipCounter() {
 }
 
 function clickRestartButton() {
-    
+    wonLevel = false;
     restartWasClicked = true;
     if(restartWasClicked === true){
         setTimeout(function (){
@@ -163,6 +163,8 @@ function timerStartEs() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
+    if(wonLevel === true)
+        clearInterval(x);
     
     }, 1000);
 }
@@ -184,6 +186,8 @@ function timerStartMd() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
+    if(wonLevel === true)
+        clearInterval(x);
     
     
     }, 1000);
@@ -206,7 +210,8 @@ function timerStartHd() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
-    
+    if(wonLevel === true)
+        clearInterval(x);
     }, 1000);
 }
 
@@ -231,7 +236,7 @@ function flipCounter(){
 
 
 function easyMode() {
-    console.log('You selected easy');
+    wonLevel = false;
     reseted = true;
     checkIfWonEasy();
     toggleMd();
@@ -277,7 +282,7 @@ function checkIfWonEasy() {
 
 
 function mediumMode() {
-    console.log('You selected medium');
+    wonLevel = false;
     checkIfWonMedium();
     toggleHd();
     selectedMedium();
@@ -309,7 +314,7 @@ function checkIfWonMedium() {
 }
 
 function hardMode() {
-    console.log('You selected hard');
+    wonLevel = false;
     checkIfWonHard();
     selectedHard();
     shuffleCardsHd();
@@ -460,18 +465,22 @@ function shuffleCardsHd() {
     });
 }
 
+let wonLevel = false;
+
 function modalWhenWinningEasy(){
-    if (nodesSameClass.length === 11 && easyModus == true) {
-        
+    if (nodesSameClass.length === 11 && easyModus === true) {
+         wonLevel = true;
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             audio[1].play();
+            winningModal.innerHTML = "YOU WON EASY";
         }, 1200);
     }
 }
 
 function modalWhenWinningMedium(){
-    if (nodesSameClass.length === 17 && mediumModus == true) {
+    if (nodesSameClass.length === 17 && mediumModus === true) {
+        let wonLevel = true;
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             audio[1].play();
@@ -481,7 +490,8 @@ function modalWhenWinningMedium(){
 }
 
 function modalWhenWinningHard(){
-    if (nodesSameClass.length === 23 && hardModus == true) {
+    if (nodesSameClass.length === 23 && hardModus === true) {
+        let wonLevel = true;
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             audio[1].play();
