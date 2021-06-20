@@ -51,7 +51,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content-background" id="modal-background">
                 <div class="modal-content menu" id="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header modal-header-start">
                         <h4 class="modal-title text-center" id="exampleModalLabel">South Park Matching Game</h4>
                     </div>
                     <div class="mx-auto d-none" id="pc">
@@ -102,8 +102,8 @@
     <div class="modal fade" id="staticBackdrop-es" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content modal-content-win">
+                <div class="modal-header modal-header-win">
                     <h5 class="modal-title" id="staticBackdropLabel">YOU WON EASY!</h5>
                     <img class="" id="bronze" src="assets/img/bronze.png" alt="bronze">
                     <img class="" id="silver" src="assets/img/silver.png" alt="silver">
@@ -113,8 +113,8 @@
                     <h4></h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Restart</button>
-                    <button type="button" class="btn btn-secondary">Game Menu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="try-again-win">Try Again</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="game-menu-win">Game Menu</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>

@@ -175,8 +175,13 @@ a:visited {
     font-family: 'Alfa Slab One', cursive, sans-serif;
 }
 
-.modal-content {
-    border: none!important;
+.modal-content { 
+    border: none;
+}
+
+.modal-content-win {
+    background-color: #edeeed;
+    border: 2px solid #00004f;
 }
 
 .menu {
@@ -215,8 +220,13 @@ a:visited {
     border-radius: .3rem
 }
 
-.modal-header {
+.modal-header-start {
     z-index: 102;
+}
+
+.modal-header-win {
+    background-color: #00004f;
+    color: white;
 }
 
 .modal-body  {

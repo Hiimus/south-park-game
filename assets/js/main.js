@@ -51,6 +51,8 @@ let goldTrophy = document.getElementById("gold");
 let tryAgain = document.getElementById("try-again");
 let menuWasClicked = false;
 let loseMenu = document.getElementById("game-menu-lose");
+let winMenu = document.getElementById("game-menu-win");
+let tryAgainWin = document.getElementById("try-again-win");
 
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
@@ -63,7 +65,9 @@ new Audio("assets/audio/pc-corrects-sp.mp3"),
 new Audio("assets/audio/lose.flac"),
 new Audio("assets/audio/bell-4.mp3")];
 
-loseMenu.addEventListener("click", beforeMenuClick)
+tryAgainWin.addEventListener("click", retry);
+winMenu.addEventListener("click", beforeMenuClick);
+loseMenu.addEventListener("click", beforeMenuClick);
 tryAgain.addEventListener("click", retry);
 modalContentBackground.addEventListener("click", clickedAgain);
 mute.addEventListener("click", muted);
