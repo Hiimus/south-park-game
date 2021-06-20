@@ -171,6 +171,10 @@ a:visited {
     font-size: 20px;
 }
 
+.row-difficulty {
+    margin-top: 50px;
+}
+
 .modal {
     font-family: 'Alfa Slab One', cursive, sans-serif;
 }
@@ -216,7 +220,7 @@ a:visited {
      background: url(../img/sp-group-3.png) bottom;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 600px;
+    height: 650px;
     border-radius: .3rem
 }
 
@@ -426,6 +430,29 @@ h4, h5, h6 {
 
 /*index.html*/
 
+    .modal-content-background {
+        background-color: #8be4e2;
+    }
+
+    .row-difficulty {
+        margin-top: 30px;
+    }
+
+    .setting-modal {
+        font-size: 14px;
+    }
+
+    .rules-modal {
+        font-size: 14px;
+    }
+
+    .rules-modal-p {
+        font-size: 12px;
+    }
+
+    .row-buttons {
+        font-size: 12px;
+    }
 
     .row-contact-index {
         width: 320px;
