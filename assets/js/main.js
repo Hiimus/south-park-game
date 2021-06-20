@@ -45,6 +45,13 @@ let modalContent = document.getElementById("modal-content")
 let pc = document.getElementById("pc");
 let bubble = document.getElementById("bubble");
 let modalContentBackground = document.getElementById("modal-background");
+let bronzeTrophy = document.getElementById("bronze");
+let silverTrophy = document.getElementById("silver");
+let goldTrophy = document.getElementById("gold");
+let tryAgain = document.getElementById("try-again");
+let menuWasClicked = false;
+let loseMenu = document.getElementById("game-menu-lose");
+
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
 new Audio("assets/audio/howdy-ho.mp3"), 
@@ -52,8 +59,11 @@ new Audio("assets/audio/nice.mp3"),
 new Audio("assets/audio/flip.flac"),
 new Audio("assets/audio/wrong.mp3"),
 new Audio("assets/audio/click.mp3"),
-new Audio("assets/audio/pc-corrects-sp.mp3")];
+new Audio("assets/audio/pc-corrects-sp.mp3"),
+new Audio("assets/audio/lose.flac")];
 
+loseMenu.addEventListener("click", beforeMenuClick)
+tryAgain.addEventListener("click", retry);
 modalContentBackground.addEventListener("click", clickedAgain);
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
@@ -70,6 +80,13 @@ cards.forEach(board => board.addEventListener('click', cardFlip));
 menu.addEventListener("click", menuClick);
 
 
+function beforeMenuClick() {
+    setTimeout(function () {
+        $("#exampleModal").modal('show');
+        menuClick();
+    }, 500);
+   
+}
 
 //Inspiration from https://www.developphp.com/video/JavaScript/Audio-Play-Pause-Mute-Buttons-Tutorial on how to make volume control
 function muted() {
@@ -95,7 +112,18 @@ function muted() {
 	
 }
 
-let menuWasClicked = false;
+
+function retry() {
+    if(easyModus === true){
+        easyMode();
+    }
+    if(mediumModus === true){
+        mediumMode();
+    }
+    if(hardModus === true){
+        hardMode();
+    }
+}
 
 function menuClick() {
     audio[5].play();
@@ -147,6 +175,13 @@ function clickRestartButton() {
     }
 }
 
+function modalWhenLosing() {
+    setTimeout(function () {
+            $("#staticBackdrop-lose").modal('show');
+            audio[7].play();
+        }, 1200);
+}
+
 function timerStartEs() {
         var time = 30;
         var x = setInterval(function () {
@@ -154,7 +189,7 @@ function timerStartEs() {
         time = time - 1;
         if(time < 0){
         clearInterval(x);
-        console.log("You lost m8");  
+        modalWhenLosing();  
     }
     if(restartWasClicked === true){
         console.log("hola");
@@ -163,8 +198,18 @@ function timerStartEs() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
-    if(wonLevel === true)
+    if(wonLevel === true){
         clearInterval(x);
+    }
+    if(time > 10){
+        goldMedal();
+    }  
+    if(time < 10){
+        silverMedal();
+    }
+    if(time < 5){
+        bronzeMedal();
+    }
     
     }, 1000);
 }
@@ -176,7 +221,7 @@ function timerStartMd() {
         time = time - 1;
         if(time < 0){
         clearInterval(x);
-        console.log("You lost m8");
+        modalWhenLosing();
         
     }
     if(restartWasClicked === true){
@@ -186,9 +231,18 @@ function timerStartMd() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
-    if(wonLevel === true)
+    if(wonLevel === true){
         clearInterval(x);
-    
+    }
+    if(time > 10){
+        goldMedal();
+    }  
+    if(time < 10){
+        silverMedal();
+    }
+    if(time < 5){
+        bronzeMedal();
+    }
     
     }, 1000);
 }
@@ -200,7 +254,7 @@ function timerStartHd() {
         time = time - 1;
         if(time < 0){
         clearInterval(x);
-        console.log("You lost m8");
+        modalWhenLosing();
         
     }
     if(restartWasClicked === true){
@@ -210,8 +264,20 @@ function timerStartHd() {
     if(menuWasClicked === true){
             clickRestartButton();
     }
-    if(wonLevel === true)
+    if(wonLevel === true){
         clearInterval(x);
+    }
+        
+    if(time > 10){
+        goldMedal();
+    }  
+    if(time < 10){
+        silverMedal();
+    }
+    if(time < 5){
+        bronzeMedal();
+    }
+    
     }, 1000);
 }
 
@@ -237,7 +303,6 @@ function flipCounter(){
 
 function easyMode() {
     wonLevel = false;
-    reseted = true;
     checkIfWonEasy();
     toggleMd();
     toggleHd();
@@ -478,9 +543,27 @@ function modalWhenWinningEasy(){
     }
 }
 
+function goldMedal(){
+    bronzeTrophy.style.opacity = "50%";
+    silverTrophy.style.opacity = "50%";
+    goldTrophy.style.opacity = "100%";
+}
+
+function silverMedal(){
+    bronzeTrophy.style.opacity = "50%";
+    silverTrophy.style.opacity = "100%";
+    goldTrophy.style.opacity = "50%";
+}
+
+function bronzeMedal(){
+    bronzeTrophy.style.opacity = "100%";
+    silverTrophy.style.opacity = "50%";
+    goldTrophy.style.opacity = "50%";
+}
+
 function modalWhenWinningMedium(){
     if (nodesSameClass.length === 17 && mediumModus === true) {
-        let wonLevel = true;
+        wonLevel = true;
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             audio[1].play();
@@ -489,9 +572,11 @@ function modalWhenWinningMedium(){
     }
 }
 
+
+
 function modalWhenWinningHard(){
     if (nodesSameClass.length === 23 && hardModus === true) {
-        let wonLevel = true;
+        wonLevel = true;
         setTimeout(function () {
             $("#staticBackdrop-es").modal('show');
             audio[1].play();

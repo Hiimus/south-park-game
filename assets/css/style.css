@@ -65,6 +65,18 @@ a:visited {
     transform: scale(1.5);
 }
 
+#gold {
+    width: 60px;
+}
+
+#silver {
+    width: 50px;
+}
+
+#bronze {
+    width: 40px;
+}
+
 .game-board {
     height: 750px;
     width: 750px;
@@ -178,6 +190,21 @@ a:visited {
     background-size: contain;
     z-index: 99;
     height: 200px;
+}
+
+.losing-modal {
+    background-color: #65436f;
+    background-image: url(../img/sp-satan.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 99;
+    height: 400px;
+}
+
+.header-lost,
+.footer-lost {
+    background-color: #65436f;
 }
 
 .modal-content-background {

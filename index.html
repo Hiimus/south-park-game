@@ -105,13 +105,38 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">YOU WON EASY!</h5>
+                    <img class="" id="bronze" src="assets/img/bronze.png" alt="bronze">
+                    <img class="" id="silver" src="assets/img/silver.png" alt="silver">
+                    <img class="" id="gold" src="assets/img/gold.png" alt="gold">
                 </div>
                 <div class="modal-body winning-modal">
                     <h4></h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restart</button>
-                    <button type="button" class="btn btn-primary">Menu</button>
+                    <button type="button" class="btn btn-secondary">Restart</button>
+                    <button type="button" class="btn btn-secondary">Game Menu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal for losing-->
+
+    <div class="modal fade" id="staticBackdrop-lose" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header header-lost">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">YOU LOST!</h5>
+                </div>
+                <div class="modal-body losing-modal">
+                    <h4></h4>
+                </div>
+                <div class="modal-footer footer-lost">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="try-again">Try Again</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="game-menu-lose">Game Menu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
