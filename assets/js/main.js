@@ -60,7 +60,8 @@ new Audio("assets/audio/flip.flac"),
 new Audio("assets/audio/wrong.mp3"),
 new Audio("assets/audio/click.mp3"),
 new Audio("assets/audio/pc-corrects-sp.mp3"),
-new Audio("assets/audio/lose.flac")];
+new Audio("assets/audio/lose.flac"),
+new Audio("assets/audio/bell-4.mp3")];
 
 loseMenu.addEventListener("click", beforeMenuClick)
 tryAgain.addEventListener("click", retry);
@@ -209,6 +210,7 @@ function timerStartEs() {
     }
     if(time < 5){
         bronzeMedal();
+        audio[8].play();
     }
     
     }, 1000);
@@ -242,6 +244,7 @@ function timerStartMd() {
     }
     if(time < 5){
         bronzeMedal();
+        audio[8].play();
     }
     
     }, 1000);
@@ -276,6 +279,7 @@ function timerStartHd() {
     }
     if(time < 5){
         bronzeMedal();
+        audio[8].play();
     }
     
     }, 1000);
