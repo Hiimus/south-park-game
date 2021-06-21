@@ -1,6 +1,6 @@
 let message = document.getElementById("email-message");
 
-
+//Thanks to Code Institute's instructional videos (Sending Emails Using EmailJS) on how to use the emailjs service.
 
 //Email service provided from emailjs
 function sendMail(contactForm) {

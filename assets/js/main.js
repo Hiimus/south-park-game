@@ -1,3 +1,6 @@
+
+/*Learned how to show modal on load from this website https://www.tutorialrepublic.com/codelab.php?topic=faq&file=show-bootstrap-modal-on-page-load */
+
 $(document).ready(function () {
     $("#exampleModal").modal('show');
 });
@@ -5,7 +8,7 @@ $(document).ready(function () {
 /* All declarations*/
 
 const cards = document.querySelectorAll('.game-card');
-const divsArr = Array.from(cards);
+const divsArr = Array.from(cards); /* Learned how to make an array of querySelectorAll from this site: https://www.tutorialsteacher.com/javascript/javascript-array */
 let front = document.querySelectorAll(".front-side");
 let back = document.querySelectorAll(".back-side");
 let easyModus = false;
@@ -25,6 +28,8 @@ let restartWasClicked = false;
 
 let parent = document.getElementById("game-board");
 
+
+let wonLevel = false;
 var nodesSameClass = parent.getElementsByClassName("cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
 let restart = document.getElementById("restart");
@@ -65,7 +70,7 @@ tryAgainWin.addEventListener("click", retry);
 winMenu.addEventListener("click", beforeMenuClick);
 loseMenu.addEventListener("click", beforeMenuClick);
 tryAgainLose.addEventListener("click", retry);
-modalContentBackground.addEventListener("click", clickedAgain);
+modalContentBackground.addEventListener("click", popupWarning);
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
 easy.addEventListener('click', easyMode);
@@ -342,6 +347,8 @@ function timerStartHd() {
     }, 1000);
 }
 
+/*A function that decides which of the timeStart functions to start*/
+
 function timerStart(){
     if (integer === 0){
         if (easyModus === true) {
@@ -356,11 +363,14 @@ function timerStart(){
     }
 }
 
+/*Flip counter function that increases with each click on card*/
+
 function flipCounter(){
     integer += 1;
     int.innerHTML = 'Flips: ' + integer;
 }    
 
+/* When clicking on easy difficulty, this function is called.*/
 
 function easyMode() {
     wonLevel = false;
@@ -381,31 +391,7 @@ function easyMode() {
     
 }
 
-function modalColorReset() {
-    easy.style.border = "none";
-    easy.style.backgroundColor = "";
-    medium.style.border = "none";
-    medium.style.backgroundColor = "";
-    hard.style.border = "none";
-    hard.style.backgroundColor = "";
-}
-
-function modalColorEs() {
-    easy.style.border = "1px solid #f77979";
-    easy.style.backgroundColor = "#f77979";
-    medium.style.border = "none";
-    medium.style.backgroundColor = "";
-    hard.style.border = "none";
-    hard.style.backgroundColor = "";
-}
-
-function checkIfWonEasy() {
-    easyModus = true;
-    mediumModus = false;
-    hardModus = false;
-}
-
-
+/* When clicking on medium difficulty, this function is called.*/
 
 function mediumMode() {
     wonLevel = false;
@@ -424,20 +410,7 @@ function mediumMode() {
     }, 500);
 }
 
-function modalColorMd() {
-    easy.style.border = "none";
-    easy.style.backgroundColor = "";
-    medium.style.border = "1px solid #f77979";
-    medium.style.backgroundColor = "#f77979";
-    hard.style.border = "none";
-    hard.style.backgroundColor = "";
-}
-
-function checkIfWonMedium() {
-    easyModus = false;
-    mediumModus = true;
-    hardModus = false;
-}
+/* When clicking on hard difficulty, this function is called.*/
 
 function hardMode() {
     wonLevel = false;
@@ -454,6 +427,41 @@ function hardMode() {
     integer = 0;
 }
 
+/* Resets the background color of the difficulties in the menu modal */
+
+function modalColorReset() {
+    easy.style.border = "none";
+    easy.style.backgroundColor = "";
+    medium.style.border = "none";
+    medium.style.backgroundColor = "";
+    hard.style.border = "none";
+    hard.style.backgroundColor = "";
+}
+
+/*Sets the background color on the easy button in the menu modal */
+
+function modalColorEs() {
+    easy.style.border = "1px solid #f77979";
+    easy.style.backgroundColor = "#f77979";
+    medium.style.border = "none";
+    medium.style.backgroundColor = "";
+    hard.style.border = "none";
+    hard.style.backgroundColor = "";
+}
+
+/*Sets the background color on the medium button in the menu modal */
+
+function modalColorMd() {
+    easy.style.border = "none";
+    easy.style.backgroundColor = "";
+    medium.style.border = "1px solid #f77979";
+    medium.style.backgroundColor = "#f77979";
+    hard.style.border = "none";
+    hard.style.backgroundColor = "";
+}
+
+/*Sets the background color on the hard button in the menu modal */
+
 function modalColorHd() {
     easy.style.border = "none";
     easy.style.backgroundColor = "";
@@ -463,20 +471,41 @@ function modalColorHd() {
     hard.style.backgroundColor = "#f77979";
 }
 
+/*Checks if easy difficulty is won */
+
+function checkIfWonEasy() {
+    easyModus = true;
+    mediumModus = false;
+    hardModus = false;
+}
+
+/*Checks if medium difficulty is won */
+
+function checkIfWonMedium() {
+    easyModus = false;
+    mediumModus = true;
+    hardModus = false;
+}
+
+/*Checks if hard difficulty is won */
+
 function checkIfWonHard() {
     easyModus = false;
     mediumModus = false;
     hardModus = true;
 }
 
+/*Is called when start game is clicked in modal, plays a sound effect and hides menu modal*/
+
 function startingGame() {
     $("#exampleModal").modal('hide');
     audio[0].play();
     startWasClicked = true;
-    
 }
 
-function clickedAgain() {
+/* Is called when not clicking a difficulty. PC Principle will give a reminder of what to do. */
+
+function popupWarning() {
     if(!wasDifficultyClicked){
     pc.classList.remove("d-none");
     bubble.classList.remove("d-none");
@@ -484,10 +513,11 @@ function clickedAgain() {
         setTimeout(function(){
             pc.classList.add("d-none");
             bubble.classList.add("d-none");
-        }, 3000);
-        
+        }, 3000);       
     }
 }
+
+/*Removes event listener to start game button if difficulty is not clicked, so that popupWarning() works properly.*/
 
 function startingGameCheck() {
     if(wasDifficultyClicked === true){
@@ -497,17 +527,21 @@ function startingGameCheck() {
     }
 }
 
-function toggleMd() {
+/*When selecting a difficulty the class game-card-md is toggled. This decides how many cards are being displayed */
 
+function toggleMd() {
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md'));
 }
+
+/*When selecting a difficulty the class game-card-md and game-card-hd is toggled. This decides how many cards are being displayed */
 
 function toggleHd() {
     selectMedium.forEach(sign => sign.classList.toggle('game-card-md', 'game-card-hd'));
 }
 
+/*Resets cards, depending on which difficulty mode is true*/
+
 function restartGame() {
-    
     reset();
     if (easyModus == true) {
         restart.addEventListener("click", easyMode);
@@ -526,10 +560,14 @@ function restartGame() {
     }
 }
 
+/*Restart button rotates on mouseover*/
+
 function restartRotate() {
     restartIcon.style.transform = "rotate(180deg)";
     restartIcon.classList.add("fa-2x");
 }
+
+/*Restart button rotates on mouseleave*/
 
 function restartRotateBack() {
     restartIcon.style.transform = "rotate(0deg)";
@@ -540,6 +578,7 @@ function restartRotateBack() {
     }
 }
 
+/*Styles that are set to all the cards when selecting easy difficulty */
 
 function selectedEasy() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(25% - 8px); height: calc(33.333% - 8px);'));
@@ -549,6 +588,8 @@ function selectedEasy() {
     cards.forEach(board => board.addEventListener('click', cardFlip));
 }
 
+/*Styles that are set to all the cards when selecting medium difficulty */
+
 function selectedMedium() {
     cards.forEach(sign => sign.setAttribute('style', 'width: calc(16.666% - 8px); height: calc(33.333% - 8px'));
     front.forEach(sign => sign.setAttribute("style", "padding: 35px 10px 35px 10px;"));
@@ -556,6 +597,8 @@ function selectedMedium() {
     cards.forEach(sign => sign.classList.remove("cardFlipped"));
     cards.forEach(board => board.addEventListener('click', cardFlip));
 }
+
+/*Styles that are set to all the cards when selecting hard difficulty */
 
 function selectedHard() {
     cards.forEach(sign => sign.setAttribute('style', 'display: block; width: calc(16.666% - 8px); height: calc(25% - 8px);'));
@@ -565,6 +608,8 @@ function selectedHard() {
     cards.forEach(board => board.addEventListener('click', cardFlip));
 }
 
+/* Cards shuffling on easy mode */
+
 function shuffleCardsEs() {
     setTimeout(function () {
         cards.forEach(sign => {
@@ -572,8 +617,9 @@ function shuffleCardsEs() {
         sign.style.order = randomPositions;
     });
     }, 500);
-    
 }
+
+/* Cards shuffling on medium mode */
 
 function shuffleCardsMd() {
     cards.forEach(sign => {
@@ -582,6 +628,8 @@ function shuffleCardsMd() {
     });
 }
 
+/* Cards shuffling on hard mode */
+
 function shuffleCardsHd() {
     cards.forEach(sign => {
         let randomPositions = Math.floor(Math.random() * 24);
@@ -589,7 +637,7 @@ function shuffleCardsHd() {
     });
 }
 
-let wonLevel = false;
+/*Modal that is displayed when winning easy mode */
 
 function modalWhenWinningEasy(){
     if (nodesSameClass.length === 11 && easyModus === true) {
@@ -602,23 +650,7 @@ function modalWhenWinningEasy(){
     }
 }
 
-function goldMedal(){
-    bronzeTrophy.style.opacity = "50%";
-    silverTrophy.style.opacity = "50%";
-    goldTrophy.style.opacity = "100%";
-}
-
-function silverMedal(){
-    bronzeTrophy.style.opacity = "50%";
-    silverTrophy.style.opacity = "100%";
-    goldTrophy.style.opacity = "50%";
-}
-
-function bronzeMedal(){
-    bronzeTrophy.style.opacity = "100%";
-    silverTrophy.style.opacity = "50%";
-    goldTrophy.style.opacity = "50%";
-}
+/*Modal that is displayed when winning medium mode */
 
 function modalWhenWinningMedium(){
     if (nodesSameClass.length === 17 && mediumModus === true) {
@@ -631,7 +663,7 @@ function modalWhenWinningMedium(){
     }
 }
 
-
+/*Modal that is displayed when winning hard mode */
 
 function modalWhenWinningHard(){
     if (nodesSameClass.length === 23 && hardModus === true) {
@@ -643,6 +675,34 @@ function modalWhenWinningHard(){
         }, 1200);
     }
 }
+
+/*If more than 10 seconds left of game, gold medal is displayed in winning modal*/
+
+function goldMedal(){
+    bronzeTrophy.style.opacity = "50%";
+    silverTrophy.style.opacity = "50%";
+    goldTrophy.style.opacity = "100%";
+}
+
+/*If 6-10 seconds left of game, silver medal is displayed in winning modal*/
+
+function silverMedal(){
+    bronzeTrophy.style.opacity = "50%";
+    silverTrophy.style.opacity = "100%";
+    goldTrophy.style.opacity = "50%";
+}
+
+/*If 0-5 seconds left of game, bronze medal is displayed in winning modal*/
+
+function bronzeMedal(){
+    bronzeTrophy.style.opacity = "100%";
+    silverTrophy.style.opacity = "50%";
+    goldTrophy.style.opacity = "50%";
+}
+
+/* Each time a card is clicked, this function is called. Flips card, checks if there is a match or not. 
+Also initates timer and flip counter. Initial code was taken from https://github.com/code-sketch/memory-game/ , 
+But some functions have been modified by me after. */
 
 function cardFlip() {
     audio[3].play();
@@ -664,7 +724,7 @@ function cardFlip() {
     checkMatching();
 }
 
-
+/*Checks if the cards match or not. */
 
 function checkMatching() {
     if (firstSign.dataset.name === secondSign.dataset.name) {
@@ -676,13 +736,13 @@ function checkMatching() {
         setTimeout(function () {
             disableFlip();
         }, 201);
-
-    } else {
-        // Not a match  
+    } else { 
         notMatching();
         audio[4].play();
     }
 }
+
+/*If cards match, cards are disabled*/
 
 function disableFlip() {
     firstSign.removeEventListener('click', cardFlip);
@@ -690,6 +750,8 @@ function disableFlip() {
     reset();
 
 }
+
+/*If cards do not match, the class cardFlipped will be removed, which flips back the cards*/
 
 function notMatching() {
     lock = true;
@@ -700,12 +762,17 @@ function notMatching() {
     }, 1000);
 }
 
+/*Resets the declarations that are used in function cardFlip.
+Code is from https://github.com/code-sketch/memory-game/ .*/
+
 function reset() {
     hasFlipped = false;
     lock = false;
     firstSign = null;
     secondSign = null;
 }
+
+/*When selecting easy mode, cards 12-23 are not displaying. Leaving 12 cards on the board*/
 
 function displayNoneEasy() {
     divsArr[12].style.display = "none";
@@ -721,6 +788,8 @@ function displayNoneEasy() {
     divsArr[22].style.display = "none";
     divsArr[23].style.display = "none";
 }
+
+/*When selecting medium mode, cards 18-23 are not displaying. Leaving 18 cards on the board*/
 
 function displayNoneMedium() {
     divsArr[18].style.display = "none";
