@@ -2,6 +2,8 @@ $(document).ready(function () {
     $("#exampleModal").modal('show');
 });
 
+/* All declarations*/
+
 const cards = document.querySelectorAll('.game-card');
 const divsArr = Array.from(cards);
 let front = document.querySelectorAll(".front-side");
@@ -18,42 +20,34 @@ let hard = document.getElementById('hard');
 let startGame = document.getElementById('start-game');
 let timerDiv = document.getElementById("timer");
 let timer = false;
-let cardFlipped = document.querySelectorAll(".cardFlipped");
 let hover = false;
 let restartWasClicked = false;
-var parent = document.getElementById("game-board");
+
+let parent = document.getElementById("game-board");
+
 var nodesSameClass = parent.getElementsByClassName("cardFlipped");
-var nodesSameClassMd = parent.getElementsByClassName("game-card-md");
-var nodesSameClassHd = parent.getElementsByClassName("game-card-hd");
-var thing = document.getElementById("game-card");
-var node = document.querySelectorAll(".cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
-var time;
 let restart = document.getElementById("restart");
 let restartIcon = document.getElementById("restart-icon");
-let element = document.querySelector(".game-card");
 let lock = false;
 let firstSign, secondSign;
 let hasFlipped = false;
-let reseted = false;
 let mute = document.getElementById("mute");
 let volume = document.getElementById("volume");
 let menu = document.getElementById("menu");
 let startWasClicked = false;
 let wasDifficultyClicked = false;
-let modalContent = document.getElementById("modal-content")
 let pc = document.getElementById("pc");
 let bubble = document.getElementById("bubble");
 let modalContentBackground = document.getElementById("modal-background");
 let bronzeTrophy = document.getElementById("bronze");
 let silverTrophy = document.getElementById("silver");
 let goldTrophy = document.getElementById("gold");
-let tryAgain = document.getElementById("try-again");
+let tryAgainLose = document.getElementById("try-again-lose");
 let menuWasClicked = false;
 let loseMenu = document.getElementById("game-menu-lose");
 let winMenu = document.getElementById("game-menu-win");
 let tryAgainWin = document.getElementById("try-again-win");
-
 let audio = 
 [new Audio("assets/audio/transition.mp3"), 
 new Audio("assets/audio/howdy-ho.mp3"), 
@@ -65,10 +59,12 @@ new Audio("assets/audio/pc-corrects-sp.mp3"),
 new Audio("assets/audio/lose.flac"),
 new Audio("assets/audio/bell-4.mp3")];
 
+/*All event listeners*/
+
 tryAgainWin.addEventListener("click", retry);
 winMenu.addEventListener("click", beforeMenuClick);
 loseMenu.addEventListener("click", beforeMenuClick);
-tryAgain.addEventListener("click", retry);
+tryAgainLose.addEventListener("click", retry);
 modalContentBackground.addEventListener("click", clickedAgain);
 mute.addEventListener("click", muted);
 volume.addEventListener("click", muted);
@@ -85,6 +81,8 @@ cards.forEach(board => board.addEventListener('click', cardFlip));
 menu.addEventListener("click", menuClick);
 
 
+/* All functions*/
+
 function beforeMenuClick() {
     setTimeout(function () {
         $("#exampleModal").modal('show');
@@ -94,33 +92,47 @@ function beforeMenuClick() {
 }
 
 //Inspiration from https://www.developphp.com/video/JavaScript/Audio-Play-Pause-Mute-Buttons-Tutorial on how to make volume control
+
 function muted() {
     mute.classList.toggle('muted');
     volume.classList.toggle('muted');
     if(audio[0].muted && audio[1].muted && audio[2].muted && audio[3].muted && audio[4].muted && audio[5].muted && audio[6].muted && audio[7].muted && audio[8].muted){
-            audio[0].muted = false; 
-            audio[1].muted = false;
-            audio[2].muted = false;
-            audio[3].muted = false;
-            audio[4].muted = false;
-            audio[5].muted = false;
-            audio[6].muted = false;
-            audio[7].muted = false;
-            audio[8].muted = false;
-	    } else {
-		    audio[0].muted = true; 
-            audio[1].muted = true;
-            audio[2].muted = true;
-            audio[3].muted = true;
-            audio[4].muted = true;
-            audio[5].muted = true;
-            audio[6].muted = true;
-            audio[7].muted = true;
-            audio[8].muted = true;
-	    }
+        audioMutedFalse();
+	} else {
+		audioMutedTrue();
+	}
 	
 }
 
+/*This function is called when volume button is clicked, so all sound effects get muted*/
+
+function audioMutedTrue() {
+    audio[0].muted = true; 
+    audio[1].muted = true;
+    audio[2].muted = true;
+    audio[3].muted = true;
+    audio[4].muted = true;
+    audio[5].muted = true;
+    audio[6].muted = true;
+    audio[7].muted = true;
+    audio[8].muted = true;
+}
+
+/*This function is called when volume button is clicked, so all sound effects get unmuted*/
+
+function audioMutedFalse() {
+    audio[0].muted = false; 
+    audio[1].muted = false;
+    audio[2].muted = false;
+    audio[3].muted = false;
+    audio[4].muted = false;
+    audio[5].muted = false;
+    audio[6].muted = false;
+    audio[7].muted = false;
+    audio[8].muted = false;
+}
+
+/*When clicking on "try again" on winning modal and losing modal, this function is called*/
 
 function retry() {
     if(easyModus === true){
@@ -134,6 +146,8 @@ function retry() {
     }
 }
 
+/*When clicking on the menu button, this function is called*/
+
 function menuClick() {
     audio[5].play();
     wasDifficultyClicked = false;
@@ -145,44 +159,79 @@ function menuClick() {
     },1000);
 }
 
+/*Resets the flip counter*/
+
 function resetFlipCounter() {
     integer = 0;
     int.innerHTML = "Flips: 0";
 }
 
+/* Function is called when restart button is clicked. Rotates restart button, resets timer, flip counter and all cards. */
+
 function clickRestartButton() {
     wonLevel = false;
     restartWasClicked = true;
+    clearTimerRestart();
+    resetFlipCounter();
+    restartIcon.style.transform = "scale(1.5)";
+    hover = true;
+    hoverRestart();
+    resetTimerEs();
+    resetTimerMd();
+    resetTimerHd();
+}
+
+/*This function will clearinterval/reset timer when clicking restart button (see timerStart functions)*/
+
+function clearTimerRestart() {
     if(restartWasClicked === true){
         setTimeout(function (){
             restartWasClicked = false;
         }, 1050);
     }
-    
-    resetFlipCounter();
-    restartIcon.style.transform = "scale(1.5)";
-    hover = true;
+}
+
+/*When hovering restart button, it will rotate*/
+
+function hoverRestart() {
     if (hover == true) {
         restartIcon.style.transform = "rotate(800deg)";
         restartIcon.style.transition = "transform 0.5s";
     }
+}
+
+/*Resets the timer for easy mode*/
+
+function resetTimerEs() {
     if (easyModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 30";
         }, 1050);
         
     }
+}
+
+/*Resets the timer for medium mode*/
+
+function resetTimerMd() {
     if (mediumModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 45";
         }, 1050);
     }
+}
+
+/*Resets the timer for hard mode*/
+
+function resetTimerHd() {
     if (hardModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 59";
         }, 1050);
     }
 }
+
+/*Is called when you lose the game*/
 
 function modalWhenLosing() {
     setTimeout(function () {
@@ -191,21 +240,19 @@ function modalWhenLosing() {
         }, 1200);
 }
 
+/* A timer which is called when starting a game on easy */
+
 function timerStartEs() {
-        var time = 30;
-        var x = setInterval(function () {
-        document.getElementById("timer").innerHTML = "Timer: " + time;
-        time = time - 1;
-        if(time < 0){
+    var time = 30;
+    var x = setInterval(function () {
+    document.getElementById("timer").innerHTML = "Timer: " + time;
+    time = time - 1;
+    if(time < 0){
         clearInterval(x);
         modalWhenLosing();  
     }
     if(restartWasClicked === true){
-        console.log("hola");
         clearInterval(x);
-    }
-    if(menuWasClicked === true){
-            clickRestartButton();
     }
     if(wonLevel === true){
         clearInterval(x);
@@ -220,26 +267,31 @@ function timerStartEs() {
         bronzeMedal();
         audio[8].play();
     }
-    
+    ifMenuWasClicked();
     }, 1000);
 }
+
+/*Condition that says if the menu button was clicked, call the clickRestartButton() which resets everything.*/
+
+function ifMenuWasClicked() {
+    if(menuWasClicked === true){
+            clickRestartButton();
+    }
+}
+
+/* A timer which is called when starting a game on medium */
 
 function timerStartMd() {
-        var time = 45;
-        var x = setInterval(function () {
-        document.getElementById("timer").innerHTML = "Timer: " + time;
-        time = time - 1;
-        if(time < 0){
+    var time = 45;
+    var x = setInterval(function () {
+    document.getElementById("timer").innerHTML = "Timer: " + time;
+    time = time - 1;
+    if(time < 0){
         clearInterval(x);
         modalWhenLosing();
-        
     }
     if(restartWasClicked === true){
-        console.log("hola");
         clearInterval(x);
-    }
-    if(menuWasClicked === true){
-            clickRestartButton();
     }
     if(wonLevel === true){
         clearInterval(x);
@@ -254,26 +306,23 @@ function timerStartMd() {
         bronzeMedal();
         audio[8].play();
     }
-    
+    ifMenuWasClicked();
     }, 1000);
 }
 
+/* A timer which is called when starting a game on hard */
+
 function timerStartHd() {
-        var time = 59;
-        var x = setInterval(function () {
-        document.getElementById("timer").innerHTML = "Timer: " + time;
-        time = time - 1;
-        if(time < 0){
+    var time = 59;
+    var x = setInterval(function () {
+    document.getElementById("timer").innerHTML = "Timer: " + time;
+    time = time - 1;
+    if(time < 0){
         clearInterval(x);
         modalWhenLosing();
-        
     }
     if(restartWasClicked === true){
-        console.log("hola");
         clearInterval(x);
-    }
-    if(menuWasClicked === true){
-            clickRestartButton();
     }
     if(wonLevel === true){
         clearInterval(x);
@@ -289,7 +338,7 @@ function timerStartHd() {
         bronzeMedal();
         audio[8].play();
     }
-    
+    ifMenuWasClicked();
     }, 1000);
 }
 
@@ -322,7 +371,7 @@ function easyMode() {
     shuffleCardsEs();
     displayNoneEasy();
     resetFlipCounter();
-    modalColorEs()
+    modalColorEs();
     audio[5].play();
     wasDifficultyClicked = true;
     integer = 0;
@@ -445,8 +494,6 @@ function startingGameCheck() {
         startGame.addEventListener('click', startingGame);
     } else {
         startGame.removeEventListener('click', startingGame);
-        PcP = true;
-        
     }
 }
 
