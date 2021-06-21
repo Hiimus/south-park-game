@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
+/*CSS styles below taken from https://github.com/code-sketch/memory-game/  */
+
 * {
     padding: 0;
     margin: 0;
@@ -9,12 +11,11 @@
 /*index.html*/
 
 body {
-  background: url(../img/sp-background-1.png) no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
-  overflow: hidden;
+    background: url(../img/sp-background-1.png) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
-
 
 .btn-menu {
     margin-top: 10px;
@@ -86,6 +87,7 @@ a:visited {
 }
 
 /*Using calc to subtract margin in order to fit card container*/
+/*Initial CSS styles taken from https://github.com/code-sketch/memory-game/ and later modified */
 
 .game-card {
     width: calc(25% - 8px);
@@ -97,7 +99,6 @@ a:visited {
     transition: all 0.4s ease;
     background-color: rgb(180 185 178 / 0.5);
     border-radius: 5%;
-
     -webkit-transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 0.5s;
   -o-transform-style: preserve-3d;
@@ -114,6 +115,8 @@ a:visited {
 .game-card:hover {
     cursor: pointer;
 }
+
+/*Initial CSS styles taken from https://github.com/code-sketch/memory-game/ and later modified */
 
 .front-side,
 .back-side {
@@ -135,15 +138,12 @@ a:visited {
   -o-transform: rotateY(180deg);
 }
 
-
-
 .cardFlipped {
     transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
 }
-
 
 #flips {
     
@@ -175,86 +175,10 @@ a:visited {
     margin-top: 50px;
 }
 
-.modal {
-    font-family: 'Alfa Slab One', cursive, sans-serif;
-}
-
-.modal-content { 
-    border: none;
-}
-
-.modal-content-win {
-    background-color: #edeeed;
-    border: 2px solid #00004f;
-}
-
-.menu {
-    background-color: #8be4e2;
-}
-
-.amount-cards {
-    margin-top: 4px;
-    font-size: 12px;
-}
-
-.winning-modal {
-    background-color: #edeeed;
-    background-image: url(../img/sp-group.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 99;
-    height: 200px;
-    margin-top: 30px;
-}
-
-.losing-modal {
-    background-color: #65436f;
-    background-image: url(../img/sp-satan.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    z-index: 99;
-    height: 400px;
-}
-
-.header-lost,
-.footer-lost {
-    background-color: #65436f;
-}
-
-.modal-content-background {
-     background: url(../img/sp-group-3.png) bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 695px;
-    border-radius: .3rem
-}
-
-.modal-header-start {
-    z-index: 102;
-}
-
-.modal-header-win {
-    background-color: #00004f;
-    color: white;
-}
-
-.modal-body  {
-    z-index: 102;
-}
-
-
-
-.modal-footer {
-    z-index: 102;
-}
-
 
 #restart-icon {
     transform: scale(1);
 }
-
-
 
 .icon-div{
     position: relative;
@@ -286,6 +210,66 @@ h4, h5, h6 {
 
 .btn {
     letter-spacing: 1.5px;
+}
+
+.github-index {
+    position: fixed;
+    bottom: 4%;
+    width: 100%;
+}
+
+.row-contact-index {
+    width: 750px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.contact-index {
+    font-family: 'Alfa Slab One', cursive, sans-serif;
+    transform: scale(1);
+}
+
+.contact-index:hover {
+    transform: scale(1.1);
+}
+
+/* menu modal in index.html */
+
+.modal {
+    font-family: 'Alfa Slab One', cursive, sans-serif;
+}
+
+.modal-content { 
+    border: none;
+}
+
+.modal-content-background {
+     background: url(../img/sp-group-3.png) bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 695px;
+    border-radius: .3rem
+}
+
+.modal-header-start {
+    z-index: 102;
+}
+
+.modal-body  {
+    z-index: 102;
+}
+
+.modal-footer {
+    z-index: 102;
+}
+
+.menu {
+    background-color: #8be4e2;
+}
+
+.amount-cards {
+    margin-top: 4px;
+    font-size: 12px;
 }
 
 #easy, #medium, #hard {
@@ -326,28 +310,47 @@ h4, h5, h6 {
     margin-left: 10%;
 }
 
-.github-index {
-    position: fixed;
-    bottom: 4%;
-    width: 100%;
+/*winning modal in index.html */
+
+.winning-modal {
+    background-color: #edeeed;
+    background-image: url(../img/sp-group.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 99;
+    height: 200px;
+    margin-top: 30px;
 }
 
-.row-contact-index {
-    width: 750px;
-    margin: auto;
-    margin-top: 10px;
+.modal-header-win {
+    background-color: #00004f;
+    color: white;
 }
 
-.contact-index {
-    font-family: 'Alfa Slab One', cursive, sans-serif;
-    transform: scale(1);
+/*losing modal in index.html */
+
+.losing-modal {
+    background-color: #65436f;
+    background-image: url(../img/sp-satan.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 99;
+    height: 400px;
 }
 
-.contact-index:hover {
-    transform: scale(1.1);
+.modal-content-win {
+    background-color: #edeeed;
+    border: 2px solid #00004f;
+}
+
+.header-lost,
+.footer-lost {
+    background-color: #65436f;
 }
 
 /*Making an image shake, code from https://www.w3schools.com/howto/howto_css_shake_image.asp */
+
 .pc {
     width: 250px;
     position: absolute;
@@ -428,11 +431,7 @@ h4, h5, h6 {
     color: red;
 }
 
-
-
 /*smartphone responsiveness*/
-
-/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) */
 
 @media only screen and (max-width: 480px) and (min-width: 320px){
 
@@ -523,7 +522,6 @@ h4, h5, h6 {
 
 /*contact.html*/
 
-
     #message {
         height: 90px;
     }
@@ -551,13 +549,11 @@ h4, h5, h6 {
     width: 300px;
     }
 
-
     .disclaimer {
     position: fixed;
     bottom: 4%;
     width: 100%;
     }
-
 
     .btn-contact {
     font-size: 12px;
@@ -583,13 +579,9 @@ h4, h5, h6 {
     .disclaimer {
     font-size: 8px;
     }
-
 }
 
 /*Tablet responsiveness*/
-
-/* @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  */
-
 
 @media only screen and (max-width: 1024px) and (min-width: 768px){
 
