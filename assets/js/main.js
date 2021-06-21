@@ -97,7 +97,7 @@ function beforeMenuClick() {
 function muted() {
     mute.classList.toggle('muted');
     volume.classList.toggle('muted');
-    if(audio[0].muted && audio[1].muted && audio[2].muted && audio[3].muted && audio[4].muted && audio[5].muted && audio[6].muted){
+    if(audio[0].muted && audio[1].muted && audio[2].muted && audio[3].muted && audio[4].muted && audio[5].muted && audio[6].muted && audio[7].muted && audio[8].muted){
             audio[0].muted = false; 
             audio[1].muted = false;
             audio[2].muted = false;
@@ -105,6 +105,8 @@ function muted() {
             audio[4].muted = false;
             audio[5].muted = false;
             audio[6].muted = false;
+            audio[7].muted = false;
+            audio[8].muted = false;
 	    } else {
 		    audio[0].muted = true; 
             audio[1].muted = true;
@@ -113,6 +115,8 @@ function muted() {
             audio[4].muted = true;
             audio[5].muted = true;
             audio[6].muted = true;
+            audio[7].muted = true;
+            audio[8].muted = true;
 	    }
 	
 }
