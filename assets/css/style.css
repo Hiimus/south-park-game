@@ -356,12 +356,10 @@ h4, h5, h6 {
 
 .btns-win {
     background-color: #00004f;
-    border-color: #00004f;
 }
 
 .btns-win:hover {
     background-color: #306a51;
-    border: #306a51;
 }
 
 /*losing modal in index.html */
@@ -389,7 +387,6 @@ h4, h5, h6 {
 
 .btns-lose:hover {
     background-color: #306a51;
-    border: #306a51;
 }
 
 /*Making an image shake, code from https://www.w3schools.com/howto/howto_css_shake_image.asp */
@@ -433,7 +430,6 @@ h4, h5, h6 {
 
 .btn-contact:hover {
     background-color: #306a51;
-    border: #306a51;
 }
 
 .sp-logo-contact {
