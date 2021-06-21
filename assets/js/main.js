@@ -682,6 +682,7 @@ function goldMedal(){
     bronzeTrophy.style.opacity = "50%";
     silverTrophy.style.opacity = "50%";
     goldTrophy.style.opacity = "100%";
+    pulseTrophyGold();
 }
 
 /*If 6-10 seconds left of game, silver medal is displayed in winning modal*/
@@ -690,6 +691,7 @@ function silverMedal(){
     bronzeTrophy.style.opacity = "50%";
     silverTrophy.style.opacity = "100%";
     goldTrophy.style.opacity = "50%";
+    pulseTrophySilver();
 }
 
 /*If 0-5 seconds left of game, bronze medal is displayed in winning modal*/
@@ -698,7 +700,40 @@ function bronzeMedal(){
     bronzeTrophy.style.opacity = "100%";
     silverTrophy.style.opacity = "50%";
     goldTrophy.style.opacity = "50%";
+    pulseTrophyBronze();
 }
+
+/*If you win the gold medal, the trophy will pulse*/
+
+function pulseTrophyGold() {
+    if(wonLevel === true){
+        goldTrophy.style.animation = "pulse 1s linear infinite";
+        silverTrophy.style.animation = "1s linear infinite";
+        bronzeTrophy.style.animation = "1s linear infinite";
+    }
+}
+
+/*If you win the silver medal, the trophy will pulse*/
+
+function pulseTrophySilver() {
+    if(wonLevel === true){
+        silverTrophy.style.animation = "pulse 1s linear infinite";
+        goldTrophy.style.animation = "1s linear infinite";
+        bronzeTrophy.style.animation = "1s linear infinite";
+    }
+}
+
+/*If you win the bronze medal, the trophy will pulse*/
+
+function pulseTrophyBronze() {
+    if(wonLevel === true){
+        bronzeTrophy.style.animation = "pulse 1s linear infinite";
+        silverTrophy.style.animation = "1s linear infinite";
+        goldTrophy.style.animation = "1s linear infinite";
+    }
+}
+
+
 
 /* Each time a card is clicked, this function is called. Flips card, checks if there is a match or not. 
 Also initates timer and flip counter. Initial code was taken from https://github.com/code-sketch/memory-game/ , 

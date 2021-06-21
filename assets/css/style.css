@@ -68,14 +68,34 @@ a:visited {
 
 #gold {
     width: 60px;
+    /* animation: pulse 1s linear infinite; */
 }
 
 #silver {
     width: 50px;
+    /* animation: pulse 1s linear infinite; */
 }
 
 #bronze {
     width: 40px;
+    /* animation: pulse 1s linear infinite; */
+}
+
+/* Modified code from https://codepen.io/ITpresent/pen/mdbPJLO which makes a pulsing animation of trophies when winning */
+
+@keyframes pulse {
+0% {
+    
+    transform: scale(1.1);
+}
+50% {
+   
+   transform: scale(0.8);
+}
+100% {
+   
+   transform: scale(1);
+}
 }
 
 .game-board {
@@ -247,12 +267,13 @@ h4, h5, h6 {
      background: url(../img/sp-group-3.png) bottom;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 695px;
+    height: 690px;
     border-radius: .3rem
 }
 
 .modal-header-start {
     z-index: 102;
+    border-bottom: none!important;
 }
 
 .modal-body  {
@@ -261,6 +282,7 @@ h4, h5, h6 {
 
 .modal-footer {
     z-index: 102;
+    border-top: none!important;
 }
 
 .menu {
@@ -327,6 +349,21 @@ h4, h5, h6 {
     color: white;
 }
 
+.modal-content-win {
+    background-color: #edeeed;
+    border: 2px solid #00004f;
+}
+
+.btns-win {
+    background-color: #00004f;
+    border-color: #00004f;
+}
+
+.btns-win:hover {
+    background-color: #306a51;
+    border: #306a51;
+}
+
 /*losing modal in index.html */
 
 .losing-modal {
@@ -339,14 +376,20 @@ h4, h5, h6 {
     height: 400px;
 }
 
-.modal-content-win {
-    background-color: #edeeed;
-    border: 2px solid #00004f;
-}
-
 .header-lost,
 .footer-lost {
     background-color: #65436f;
+    border-bottom: none!important;
+    border-top: none!important;
+}
+
+.modal-content-lost {
+    background-color: #65436f;
+}
+
+.btns-lose:hover {
+    background-color: #306a51;
+    border: #306a51;
 }
 
 /*Making an image shake, code from https://www.w3schools.com/howto/howto_css_shake_image.asp */
@@ -505,7 +548,16 @@ h4, h5, h6 {
     .modal-body {
         padding: 1px;
     }
-    
+
+    .losing-modal {
+        height: 350px;
+    }
+
+    .btns-lose {
+        font-size: 12px;
+        margin: .15rem!important;
+    }
+
     #easy:active,
     #medium:active,
     #hard:active {
