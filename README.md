@@ -1,17 +1,54 @@
 # South Park Memory Game
 
+![Am I responsive image](readme-images/amiresponsive.JPG)
+
 ### South Park Memory Game is a fun and intuitive card game for all ages. In this game the goal is to find all the pairs in the card deck, displaying the most popular South Park caracters. South Park is originally an american TV show that had its debut in 1997, and is still going strong. The show contains profanity, surreal humor and satire, making it less appropriate for the youngest. With that in mind I have not included any of this in this game, making it more user friendly for the youngest users. 
 To visit the deployed website, click [here](https://hiimus.github.io/south-park-game/)
 ## Table of Contents
 
-To make [wireframes](wireframes), I used [Balsamiq](https://balsamiq.com/).
+ * ### UX 
+    * Project Goals
+    * User Journey
+    * User Stories
+    * Wireframes
+    * Features
+    * Existing Features
+    * Features Left to Implement
+* ### Technologies Used
+    * Tools
+    * Libraries
+    * Languages
+* ### Testing
+* ### Deployment
+* ### Running the Project Locally
+* ### Credits#credits
+    * Contents
+    * Media
+    * Acknowledgements
+    
 
 ## UX
-### Project goals
+### Project Goals
  The main goal of this project is to let the user have fun and exercise their short therm memory. For some users, South Park might be something they've never heard of. In that case, it might be a cool discovery of this little world. For other users it might not be new at all, but something that brings back good memories. Regardless, this games' sound effects and design will hopefully create a laugh or two. And with three different difficulty levels, it should be challenging even to the more skilled users.
 ### User Journey
-BILDER
-## User Stories
+
+The first thing the user will see when the page is loaded, is the menu modal. From here, the user has to select a difficulty in order to move on and let modal hide. If the user clicks the start game button before selecting a difficulty, PC Principal will pop up and tell the user what to do.
+
+![menu modal](readme-images/menu-modals.JPG) ![menu modal pop up](readme-images/pc-menu-modal.JPG)
+
+When the difficulty is selected, the game board will display. Here the easy difficulty has been selected.
+
+![game board](readme-images/game-board.JPG)
+
+If the user matched all the pairs before the timer runs out, the winning modal will show. If the user fail to do this, the losing modal will show. After winning or losing, the user can then choose "Try Again", "Game Menu", or "Close".
+
+![winning modal](readme-images/winning-modal.JPG) ![losing modal](readme-images/losing-modal.JPG)
+
+Lets say the user has found all the pairs, and the user clicked "Close" on the winning modal. Then the user will be directed back to the game board. From here the user can click on the contact button below the game board. The user will then be directed to the contact page. Here the user can write the developer a message. After the user has written a message, the user can either click on the logo or the "Back to game menu" button, which will direct the user to the modal menu.
+
+![All pairs found](readme-images/close.JPG) ![Contact page](readme-images/contact.JPG)
+
+### User Stories
 The users of this site will be people of all ages, mostly younger users and young adults. User stories are made for young users, and young adults.
 - As a young user/young adult, I want to get a quick understanding of what this game is about so that I can see if this is something I want to spend my time on.
 - As a young user/young adult, I want the game to be intuitive, easy to play and navigate, so that I don't have to spend extra time on figuring out how things work.
@@ -20,10 +57,10 @@ The users of this site will be people of all ages, mostly younger users and youn
 - As a young user/young adult, I want the game to work smooth and fast, so that I don't have to wait because of delay.
 - As a young adult, I want to be able to contact the owners of the site, so that I can communicate with the owners.
 - As a young adult, I want the game to have multiple levels, so that I can challenge myself.
-## Wireframes
-To make [wireframes](wireframes), I used [Balsamiq](https://balsamiq.com/).
-## Features
-### Existing features:
+### Wireframes
+To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
+### Features
+### Existing Features:
 ### index.html:
 The index.html page is where the game board and game cards are. When loading the page, the first thing the user will see is a modal, and a background image. The background behind the modal is a sky that is used throughout the game. The thought was that South Park is set in Colorado, often with snow and blue sky, and also that it gives a good contrast from the colors and images I have used.
 
@@ -45,7 +82,7 @@ Below the game board there are two things to mention: A "Contact" link just belo
 ### contact.html
 This page is where the user can contact the developer for whatever reason. The page consist of an image , a form, a "Back to game menu" button, a Github link and a disclaimer message in the footer. 
 
-In my opinion the image represents the game well, displaying the most popular figures from the show and the sign/board, which is heavily used as the backside of the cards. 
+In my opinion the image represents the game well, displaying the most popular figures from the show and the sign/board, which is heavily used as the backside of the cards. This image has an anchor link, so clicking it will direct the user back to the index.html page.
 
 The form has three input fields where the user can insert their name, email address and message. The user can then Click on the submit button, and a red text will appear once the message has been sent. The form is linked up with the service emailJS. 
 
