@@ -330,6 +330,7 @@ h4, h5, h6 {
     position: absolute;
     z-index: 103;
     margin-left: 10%;
+    margin-top: 40px;
 }
 
 /*winning modal in index.html */
@@ -397,6 +398,7 @@ h4, h5, h6 {
     z-index: 103;
     animation: shake 0.5s;
     animation-iteration-count: 2;
+    margin-top: 95px;
 }
 
 @keyframes shake {
@@ -523,7 +525,7 @@ h4, h5, h6 {
 
     .pc {
       width: 170px!important;
-      margin-top: 15%!important;
+      margin-top: 32%!important;
     }
 
     .game-board {
