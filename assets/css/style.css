@@ -465,7 +465,7 @@ h4, h5, h6 {
 .github {
     position: fixed;
     width: 100%;
-    bottom: 100px;
+    bottom: 75px;
 }
 
 #email-message {
@@ -601,12 +601,12 @@ h4, h5, h6 {
 
     .disclaimer {
     position: fixed;
-    bottom: 4%;
+    bottom: 1%;
     width: 100%;
     }
 
     .disclaimer-p {
-        position: fixed;
+        margin-bottom: 0rem!important;
     }
 
     .btn-contact {
@@ -632,10 +632,6 @@ h4, h5, h6 {
 
     .disclaimer {
     font-size: 8px;
-    }
-
-    .github {
-        bottom: 30px;
     }
 }
 
