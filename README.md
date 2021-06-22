@@ -85,11 +85,11 @@ In my opinion the image represents the game well, displaying the most popular fi
 
 **The form** has three input fields where the user can insert their name, email address and message. The user can then Click on the submit button, and a red text will appear once the message has been sent. The form is linked up with the service emailJS. 
 
-[Contact form](readme-images/contact-mail.png)
+![Contact form](readme-images/contact-mail.png)
 
-Below the form, there is a "Back to game menu" button, which directs the user to the menu modal.
+Below the form, there is a **"Back to game menu"** button, which directs the user to the menu modal.
 
-In the footer there is a Github link here as well, and a disclaimer message. This disclaimer message is important for me because it explains that some of the sound effects are not downloaded from royalty free websites. And also that this website is not intended for commercial use. I really tried to get all my audio from royalty free websites, but I could not find any South Park sounds that were free. I tried to contact the website I got most of my South Park sound effects from, but without any reply. Since I think this game would not be the same without these sound effects, I decided to use them, and to have this disclaimer message in the contact page.
+In the footer there is a Github link here as well, and a **disclaimer message**. This disclaimer message is important for me because it explains that some of the sound effects are not downloaded from royalty free websites. And also that this website is not intended for commercial use. I really tried to get all my audio from royalty free websites, but I could not find any South Park sounds that were free. I tried to contact the website I got most of my South Park sound effects from, but without any reply. Since I think this game would not be the same without these sound effects, I decided to use them, and to have this disclaimer message in the contact page.
 
 ### Features Left to Implement:
 This project has been really fun to make. I found myself wanting to add more and more stuff, here are some of the stuff I thought would be nice to implement.
