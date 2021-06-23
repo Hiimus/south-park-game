@@ -10,16 +10,13 @@ function sendMail(contactForm) {
         "project_request": contactForm.message.value
     })
     .then(
-        function (response) {
-            console.log("SUCCESS", response);
+        function () {
             message.classList.remove("d-none");
             setTimeout(function (){
                 message.classList.add("d-none");
             }, 5000);
-        }, 
-        function (error) {
-            console.log("FAILED", error);
-        }
+        } 
     );
     return false; // To block from loading a new page
 }
+
