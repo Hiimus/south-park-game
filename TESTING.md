@@ -1,7 +1,6 @@
 # Testing
-## Code testing
 ## Code Validators
-[W3C HTML Validator by Direct input](https://www.validator.w3.org/) 
+[W3C HTML Validator by Direct input](https://validator.w3.org/) 
 
 - index.html results: No errors or warnings to show.
 
@@ -77,7 +76,7 @@ Results: Results: This game has three difficulties. Easy, medium and hard. These
 Developing this game was not without it's bugs. Some of them were easy to fix, other took some time to figure out. Here are some of them:
 
 1. Favicons. At first, I got an error in the console which I didn't understand. After googling it, I understood what it was, and fixing it actually made my site look better. I used the tool from [Favicon](https://favicon.io/) to make a favicon. I did what the site said, and everything worked fine. A couple of days later, I get a 401 error message about the site.webmanifest file. I did not know what to do, and it seemed no one else had the same problem as me, like it was such a no-brainer. Luckily, I stumbled upon this [article](https://medium.com/@aurelien.delogu/401-error-on-a-webmanifest-file-cb9e3678b9f3
-), which explained an easy fix. I simply added crossorigin="use-credentials" in my link, and this solved my problem, and I got no more errors from it.
+) from [medium.com](https://medium.com/), which explained an easy fix. I simply added crossorigin="use-credentials" in my link, and this solved my problem, and I got no more errors from it.
 
 2. Using other people's code. I am really grateful for the [video tutorial](https://www.youtube.com/watch?v=ZniVgo8U7ek) made by [Marina Ferreira](https://github.com/code-sketch/memory-game/), that turned out to be the backbone of my game. However, this caused me lots of frustration because I did not create it myself. So when I was adding and modifying on that code, it didn't always make sence for me. This lesson has taught me to be careful when using other people's code, and try to solve it with your own code first.
 
