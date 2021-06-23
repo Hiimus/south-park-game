@@ -11,7 +11,7 @@
 /*index.html*/
 
 body {
-    background: url(../img/sp-background-1-k.png) no-repeat center center fixed;
+    background: url(../img/sp-background-k.png) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -321,7 +321,7 @@ h4, h5, h6 {
 }
 
 .modal-backdrop {  
-    background: url(../img/sp-background-1-k.png) center center / cover no-repeat fixed;
+    background: url(../img/sp-background-k.png) center center / cover no-repeat fixed;
     overflow: hidden;
 }
 
