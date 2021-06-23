@@ -417,6 +417,12 @@ h4, h5, h6 {
 
 /*contact.html*/
 
+#fullname,
+#emailaddress,
+#message {
+    margin-bottom: 2px;
+}
+
 .center-form {
     width: 750px;
     margin: auto;
