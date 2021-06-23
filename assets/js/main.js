@@ -27,10 +27,9 @@ let hover = false;
 let restartWasClicked = false;
 
 let parent = document.getElementById("game-board");
-
+var nodesSameClass = parent.getElementsByClassName("cardFlipped");
 
 let wonLevel = false;
-var nodesSameClass = parent.getElementsByClassName("cardFlipped");
 var winningModal = document.getElementById("staticBackdropLabel");
 let restart = document.getElementById("restart");
 let restartIcon = document.getElementById("restart-icon");
