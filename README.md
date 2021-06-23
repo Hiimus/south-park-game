@@ -107,9 +107,8 @@ This project has been really fun to make. I found myself wanting to add more and
 - [Git](https://git-scm.com/) for version control.
 - [Balsamiq](https://balsamiq.com/) for creating wireframes.
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) to view the site in various screen sizes and devices. For trying out style and code without doing any real changes to the page. 
-- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing of performance, accessibility and SEO.
 - [Responsive Design Checker](https://www.responsivedesignchecker.com/) for testing of responsiveness on various screen sizes and devices.
-- [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images while maintaining aspect ratio, and aligning screenshots next to eachother. Also used paint to make the speaking bubble that appears when not selecting difficulty.
+- [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) was used paint to make the speaking bubble that appears when not selecting difficulty.
 - [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
 - [Audio Trimmer](https://audiotrimmer.com/#), was used to trim down the audio used in the last five seconds of the game. 
 - [Cloud Convert](https://cloudconvert.com/), was used to convert wav files to mp3 files.
