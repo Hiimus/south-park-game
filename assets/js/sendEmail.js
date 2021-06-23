@@ -10,7 +10,6 @@ function sendMail(contactForm) {
         "from_email": contactForm.emailaddress.value,
         "project_request": contactForm.message.value
     })
-    
     .then(
         function () {
             message.classList.remove("d-none");
@@ -21,14 +20,15 @@ function sendMail(contactForm) {
         
     );
     return false; // To block from loading a new page
-    
 }
 
-/*This function clears the text when clicking on submit button*/
+/*This function clears the text after one second when clicking on submit button*/
 
 function clearText() {
-    document.getElementById('fullname').value='';
-    document.getElementById('emailaddress').value='';
-    document.getElementById('message').value='';
+    setTimeout(function () {
+        document.getElementById('fullname').value='';
+        document.getElementById('emailaddress').value='';
+        document.getElementById('message').value='';
+    }, 1000);
 }
 
