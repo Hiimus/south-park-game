@@ -47,7 +47,7 @@
     Big thanks to CI instructional videos (Sending Emails Using EmailJS)
     where I learned about using emailJS and also providing a form that I have used and modified below.-->
 
-    <div class="center-form">
+    <div class="center-form" id="contact-form">
         <form onsubmit="return sendMail(this);">
             <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required pattern="^[a-zA-Z]+\s?[a-zA-Z]+$">
             <input type="email" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email"
@@ -56,7 +56,7 @@
                 required pattern="^[a-zA-Z]+\s?[a-zA-Z]+$"></textarea>
             <div class="row back-to-menu">
                 <div class="col-6">
-                    <button type="submit" class="btn btn-secondary center-block btn-contact">Submit
+                    <button type="submit" class="btn btn-secondary center-block btn-contact" id="submit-button">Submit
                         Message</button>
                 </div>
                 <div class="col-6 btn-back">
