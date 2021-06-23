@@ -4,7 +4,7 @@
 
 ### South Park Memory Game is a fun and intuitive card game for all ages. In this game the goal is to find all the pairs in the card deck, displaying the most popular South Park caracters. South Park is originally an american TV show that had its debut in 1997, and is still going strong. The show contains profanity, surreal humor and satire, making it less appropriate for the youngest. With that in mind I have not included any of this in this game, making it more user friendly for the youngest users. 
 To visit the deployed website, click [here](https://hiimus.github.io/south-park-game/)
-## Table of Contents
+# Table of Contents
 
  * ### UX 
     * Project Goals
@@ -27,10 +27,10 @@ To visit the deployed website, click [here](https://hiimus.github.io/south-park-
     * Acknowledgements
     
 
-## UX
-### Project Goals
+# UX
+## Project Goals
  The main goal of this project is to let the user have fun and exercise their short therm memory. For some users, South Park might be something they've never heard of. In that case, it might be a cool discovery of this little world. For other users it might not be new at all, but something that brings back good memories. Regardless, this games' sound effects and design will hopefully create a laugh or two. And with three different difficulty levels, it should be challenging even to the more skilled users.
-### User Journey
+## User Journey
 
 The first thing the user will see when the page is loaded, is the menu modal. From here, the user has to select a difficulty in order to move on and let modal hide. If the user clicks the start game button before selecting a difficulty, PC Principal will pop up and tell the user what to do.
 
@@ -48,19 +48,20 @@ Lets say the user has found all the pairs, and the user clicked "Close" on the w
 
 ![All pairs found](readme-images/close.JPG) ![Contact page](readme-images/contact.JPG)
 
-### User Stories
+## User Stories
 The users of this site will be people of all ages, mostly younger users and young adults. User stories are made for young users, and young adults.
 - As a young user/young adult, I want to get a quick understanding of what this game is about so that I can see if this is something I want to spend my time on.
 - As a young user/young adult, I want the game to be intuitive, easy to play and navigate, so that I don't have to spend extra time on figuring out how things work.
 - As a young user/young adult, I want to have the opportunity to change the difficulty, so that I can adjust it according to my preferences.
 - As a young user/young adult, I want to have volume controls, so that I can adjust the volume according to my preferences.
 - As a young user/young adult, I want the game to work smooth and fast, so that I don't have to wait because of delay.
+- As a young user/young adult, I want to be able to replay the level, so that I can improve my score.
 - As a young adult, I want to be able to contact the owners of the site, so that I can communicate with the owners.
 - As a young adult, I want the game to have multiple levels, so that I can challenge myself.
-### Wireframes
+## Wireframes
 To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
-### Features
-### Existing Features:
+# Features
+## Existing Features:
 ### index.html:
 The index.html page is where the game board and game cards are. When loading the page, the first thing the user will see is a modal, and a background image. The background behind the modal is a sky that is used throughout the game. The thought was that South Park is set in Colorado, often with snow and blue sky, and also that it gives a good contrast from the colors and images I have used.
 
@@ -91,15 +92,15 @@ Below the form, there is a **"Back to game menu"** button, which directs the use
 
 In the footer there is a Github link here as well, and a **disclaimer message**. This disclaimer message is important for me because it explains that some of the sound effects are not downloaded from royalty free websites. And also that this website is not intended for commercial use. I really tried to get all my audio from royalty free websites, but I could not find any South Park sounds that were free. I tried to contact the website I got most of my South Park sound effects from, but without any reply. Since I think this game would not be the same without these sound effects, I decided to use them, and to have this disclaimer message in the contact page.
 
-### Features Left to Implement:
+## Features Left to Implement:
 This project has been really fun to make. I found myself wanting to add more and more stuff, here are some of the stuff I thought would be nice to implement.
 1. In the menu modal, PC Principal will pop up if you don't select a difficulty before clicking start game. It would be fun if his head popped up from the sides of the modal, observing you/peeking at you, before even making a decision.
 2. There really is not a way to pause the game while playing. So a pause button would be nice.
 3. Volume control. I have a button that mutes/unmutes the sound, but it would be even better if the user was able to adjust the volume as well.
 4. Improve the look of the game on mobile/smartphone device. It does not look great on smartphone. Maybe organizing the cards with one more row on the bottom so it gets higher and narrower. The images are very small in general, and the medium difficulty makes the images a squished.
 5. Score board. It would be nice if the user could see their previous scores, with times, flips and more. That would maybe give the user motivation to play more and beat their score.
-## Technologies Used
-### Tools:
+# Technologies Used
+## Tools:
 - [Gitpod](https://www.gitpod.io/) used as IDE.
 - [GitHub](https://github.com/) used to store and share repository.
 - [Git](https://git-scm.com/) for version control.
@@ -111,9 +112,10 @@ This project has been really fun to make. I found myself wanting to add more and
 - [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
 - [Audio Trimmer](https://audiotrimmer.com/#), was used to trim down the audio used in the last five seconds of the game. 
 - [Cloud Convert](https://cloudconvert.com/), was used to convert wav files to mp3 files.
+- [Online PNG Tools](https://onlinepngtools.com/) was used to compress and reduce PNG files without losing transparency.
 - [EmailJS](https://www.emailjs.com/), was used as an email service for the contact.html page.
 - [YouTube](https://www.youtube.com/), was used to help me understand JavaScript, and how to make certain parts of the game.
-### Libraries:
+## Libraries:
 - [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) for a quick page structure and components.
 - [Google Fonts](https://fonts.google.com/) as a provider of font styles for my project.
 - [Font Awesome](https://fontawesome.com/) as a provider of icons.
@@ -121,9 +123,9 @@ This project has been really fun to make. I found myself wanting to add more and
 Languages:
 
 [HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-## Testing
+# Testing
 The testing of this project can be found as a seperate [TESTING.md](TESTING.md) file.
-## Deployment
+# Deployment
 My project was deployed to GitHub pages. 
 1. Go to [GitHub](https://github.com/) and sign in to account.
 2. Click on your profile menu in the top right corner, then "your repositories".
@@ -139,20 +141,20 @@ Cloning this project from GitHub:
 3. Open your IDE, and open the command line.
 4. Type git clone, and past the URL you copied from GitHub.
 5. Press enter, and the clone will be created in a folder of the IDE you have open.
-## Credits
-### Content
+# Credits
+## Content
 This project has been a real challenge for me. In the beginning, I had no idea how to start regarding the JavaScript. I knew there was tons of resources I could use on the internet, I started with youtube. On youtube I found a really helpful [video](https://www.youtube.com/watch?v=ZniVgo8U7ek) made by [Marina Ferreira](https://github.com/code-sketch/memory-game/). I used the code in this tutorial, and then modified it to suit my project. Big thanks to Marina Ferreira for giving me a good starting point. I have tried to comment out where I have used the code from the video, but after I have modified and refactored this code it is spread out into different functions. I can at least mention that this video tutorial helped me to organise the cards and gameboard, write code that give the cards a flip effect, and checking if the cards match or not. It also helped me locking the board so you can't click on more than two cards at a time.
 
 Big thanks to the [Code Institute](https://codeinstitute.net/) videos (Sending Emails Using EmailJS), for learning me how to implement the emailJS service to my contact.html page. I also used the source code from these videos so that I could make a similar form, only with a couple of changes. 
 
 Learning about audio and volume control is credited to [this](https://www.developphp.com/video/JavaScript/Audio-Play-Pause-Mute-Buttons-Tutorial) website. 
 
-### Media
+## Media
 All the images used in this project were downloaded from [PNG Egg](https://www.pngegg.com/). 
 
 Audio is downloaded from [Voicy](https://www.voicy.network/), [Myinstants](https://www.myinstants.com/) and [Open Game Art](https://opengameart.org/).
 
-### Acknowledgements
+## Acknowledgements
 My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for guiding, support and pointing me in the right direction.
 
 The Code Institute [Slack](https://slack.com/) channel for having discussion, questions and answers that contribute to my project. Also a lot of similar projects are posted in the slack channel, which contributed to the planning of my project. 
