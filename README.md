@@ -99,6 +99,7 @@ This project has been really fun to make. I found myself wanting to add more and
 3. Volume control. I have a button that mutes/unmutes the sound, but it would be even better if the user was able to adjust the volume as well.
 4. Improve the look of the game on mobile/smartphone device. It does not look great on smartphone. Maybe organizing the cards with one more row on the bottom so it gets higher and narrower. The images are very small in general, and the medium difficulty makes the images a squished.
 5. Score board. It would be nice if the user could see their previous scores, with times, flips and more. That would maybe give the user motivation to play more and beat their score.
+6. I should have had more JavaScript files instead of just two. My main js file has a lot of code which could have been spread out to several files, making it easier to read, work on and understand.
 # Technologies Used
 ## Tools:
 - [Gitpod](https://www.gitpod.io/) used as IDE.
