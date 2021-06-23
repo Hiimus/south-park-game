@@ -25,10 +25,9 @@ let timerDiv = document.getElementById("timer");
 let timer = false;
 let hover = false;
 let restartWasClicked = false;
-
 let parent = document.getElementById("game-board");
 var nodesSameClass = parent.getElementsByClassName("cardFlipped");
-
+let contactMenu = document.getElementById("contact-menu");
 let wonLevel = false;
 var winningModal = document.getElementById("staticBackdropLabel");
 let restart = document.getElementById("restart");
@@ -83,7 +82,7 @@ restartIcon.addEventListener("mouseleave", restartRotateBack);
 restartIcon.addEventListener("click", clickRestartButton);
 cards.forEach(board => board.addEventListener('click', cardFlip));
 menu.addEventListener("click", menuClick);
-
+contactMenu.addEventListener("click", noWarning);
 
 /* All functions*/
 
@@ -505,6 +504,7 @@ function startingGame() {
 /* Is called when not clicking a difficulty. PC Principle will give a reminder of what to do. */
 
 function popupWarning() {
+    
     if(!wasDifficultyClicked){
     pc.classList.remove("d-none");
     bubble.classList.remove("d-none");
@@ -514,6 +514,12 @@ function popupWarning() {
             bubble.classList.add("d-none");
         }, 3000);       
     }
+}
+
+/*If the contact button in the menu modal is clicked, there will not be any popup message. popupWarning() will not be executed*/
+
+function noWarning() {
+    wasDifficultyClicked = true;
 }
 
 /*Removes event listener to start game button if difficulty is not clicked, so that popupWarning() works properly.*/
