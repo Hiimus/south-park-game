@@ -195,6 +195,9 @@ a:visited {
     margin-top: 50px;
 }
 
+#contact-menu {
+    margin-top: 10px;
+}
 
 #restart-icon {
     transform: scale(1);
@@ -283,6 +286,7 @@ h4, h5, h6 {
 .modal-footer {
     z-index: 102;
     border-top: none!important;
+    padding: 0rem;
 }
 
 .menu {
@@ -486,11 +490,11 @@ h4, h5, h6 {
 
     .modal-content-background {
         background-color: #8be4e2;
-        height: 550px;
+        height: 560px;
     }
 
     .row-difficulty {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .setting-modal {
