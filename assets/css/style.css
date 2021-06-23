@@ -11,7 +11,7 @@
 /*index.html*/
 
 body {
-    background: url(../img/sp-background-1.png) no-repeat center center fixed;
+    background: url(../img/sp-background-1-k.png) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -264,7 +264,7 @@ h4, h5, h6 {
 }
 
 .modal-content-background {
-     background: url(../img/sp-group-3.png) bottom;
+     background: url(../img/sp-group-3-k.png) bottom;
     background-repeat: no-repeat;
     background-size: contain;
     height: 690px;
@@ -321,7 +321,7 @@ h4, h5, h6 {
 }
 
 .modal-backdrop {  
-    background: url(../img/sp-background-1.png) center center / cover no-repeat fixed;
+    background: url(../img/sp-background-1-k.png) center center / cover no-repeat fixed;
     overflow: hidden;
 }
 
@@ -337,7 +337,7 @@ h4, h5, h6 {
 
 .winning-modal {
     background-color: #edeeed;
-    background-image: url(../img/sp-group.png);
+    background-image: url(../img/sp-group-k.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 99;
@@ -367,7 +367,7 @@ h4, h5, h6 {
 
 .losing-modal {
     background-color: #65436f;
-    background-image: url(../img/sp-satan.png);
+    background-image: url(../img/sp-satan-k.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
