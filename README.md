@@ -21,7 +21,7 @@ To visit the deployed website, click [here](https://hiimus.github.io/south-park-
 * ### Testing
 * ### Deployment
 * ### Running the Project Locally
-* ### Credits#credits
+* ### Credits
     * Contents
     * Media
     * Acknowledgements
@@ -42,11 +42,11 @@ When the difficulty is selected, the game board will display. Here the easy diff
 
 If the user matched all the pairs before the timer runs out, the winning modal will show. If the user fails to do this, the losing modal will show. After winning or losing, the user can then choose "Try Again", "Game Menu", or "Close".
 
-![winning modal](readme-images/winning-modal.JPG) ![losing modal](readme-images/losing-modal.JPG)
+![winning modal](readme-images/win-modal.JPG) ![losing modal](readme-images/lose-modal.png)
 
-Let's say the user has found all the pairs, and the user clicked "Close" on the winning modal. Then the user will be directed back to the game board. From here the user can click on the contact button below the game board. The user will then be directed to the contact page. Here the user can write the developer a message. After the user has written a message, the user can either click on the logo or the "Back to game menu" button, which will direct the user to the modal menu.
+Let's say the user has found all the pairs, and the user clicked "Try Again" on the winning modal. Then the user will be directed back to the game board. From here the user can click on the contact button below the game board. The user will then be directed to the contact page. Here the user can write the developer a message. After the user has written a message, the user can either click on the logo or the "Back to game menu" button, which will direct the user to the modal menu.
 
-![All pairs found](readme-images/close.JPG) ![Contact page](readme-images/contact.JPG)
+![Contact page](readme-images/contact.JPG)
 
 ## User Stories
 The users of this site will be people of all ages, mostly younger users and young adults. User stories are made for young users, and young adults.
@@ -74,7 +74,7 @@ Once the modal is hidden, **the game board** with game cards will appear, togeth
 
 There are **sound effects** being played on many different occasions in this game. If a player clicks a card, a click sound is played. If a player clicks another card, and that card matches the first one, a South Park figure (Sergeant Harrison Yates) will say "nice". If it doesn't match, a wrong sound will play. Also, when there is only five seconds left of the timer, a sort of bell will play each of the last five seconds. If the user wins the game, a figure called Mr. Hankey will say "Hoowdy ho". On the other hand, if the timer runs out, the user will lose the game, and a sort of evil dungeon sound will play.
 
-There are two different modals that will display, depending if the user wins or loses the game. **The winning modal** contains a header with the text "You won <difficulty>" and three trophies. If the user has 10+ seconds left, no matter the difficulty setting, a gold trophy is displayed with a pulsing animation. The other trophies, silver and bronze will then be transparent and will not have the pulsing effect. If the user has 6-10 seconds left, the same thing will happen, only with the silver trophy. Lastly, if the user has 0-5 seconds left of the timer, the bronze trophy will have the pulsing effect, while the other trophies will not, and be transparent. This effect will give a clear indication of what the user has achieved. The body of the winning modal consist of an image of the most popular South Park figures; Stan, Kyle, Eric and Kenny. In the modal footer there are three buttons, that decides where the user will move on to next. The user can either click "Try Again", and that will have the same effect as clicking the restart wheel. Or, the user can click on "Game menu", which directs the user to the menu modal, or just "Close", which will close this winning modal. The color used in the header, border and on the buttons, is just a dark blue color that had a nice contrast against the trophies. When hovering the buttons, dark green color is displayed. This color, found with the color picker tool in google devtools, is used in the buttons of the winning and losing modal. The color is also used in the contact page. More on the contact page later.
+There are two different modals that will display, depending if the user wins or loses the game. **The winning modal** contains a header with the text "You won <difficulty>" and three trophies. If the user has 10+ seconds left, no matter the difficulty setting, a gold trophy is displayed with a pulsing animation. The other trophies, silver and bronze will then be transparent and will not have the pulsing effect. If the user has 6-10 seconds left, the same thing will happen, only with the silver trophy. Lastly, if the user has 0-5 seconds left of the timer, the bronze trophy will have the pulsing effect, while the other trophies will not, and be transparent. This effect will give a clear indication of what the user has achieved. The body of the winning modal consist of an image of the most popular South Park figures; Stan, Kyle, Eric and Kenny. In the modal footer there are two buttons, that decides where the user will move on to next. The user can either click "Try Again", and that will have the same effect as clicking the restart wheel. Or, the user can click on "Game menu", which directs the user to the menu modal. The color used in the header, border and on the buttons, is just a dark blue color that had a nice contrast against the trophies. When hovering the buttons, dark green color is displayed. This color, found with the color picker tool in google devtools, is used in the buttons of the winning and losing modal. The color is also used in the contact page. More on the contact page later.
 
 If the timer runs out before the user has managed to find all the pairs, the **losing modal** will appear. This modal consists of a header, with a white text saying "You lost!". In the losing modal body there is an image of a South Park figure called Satan, the ruler of hell. Together with the losing sound effect, this gives a good indication that the user has lost the game. Further, in the footer the buttons are the same as in the winning modal, regarding style, content and where they direct the user on click.
 
@@ -119,6 +119,7 @@ This project has been really fun to make. I found myself wanting to add more and
 - [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) for a quick page structure and components.
 - [Google Fonts](https://fonts.google.com/) as a provider of font styles for my project.
 - [Font Awesome](https://fontawesome.com/) as a provider of icons.
+- [Jquery](https://jquery.com/) as a tool to with write easier and also less code.
 
 Languages:
 
