@@ -40,7 +40,7 @@ When the difficulty is selected, the game board will display. Here the easy diff
 
 ![game board](readme-images/game-board.JPG)
 
-If the user matched all the pairs before the timer runs out, the winning modal will show. If the user fails to do this, the losing modal will show. After winning or losing, the user can then choose "Try Again", "Game Menu", or "Close".
+If the user matched all the pairs before the timer runs out, the winning modal will show. If the user fails to do this, the losing modal will show. After winning or losing, the user can then choose "Try Again" or "Game Menu".
 
 ![winning modal](readme-images/win-modal.JPG) ![losing modal](readme-images/lose-modal.png)
 
