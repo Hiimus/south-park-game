@@ -26,6 +26,7 @@ let timer = false;
 let hover = false;
 let restartWasClicked = false;
 let parent = document.getElementById("game-board");
+let flipMenu = document.getElementById("flip-menu");
 var nodesSameClass = parent.getElementsByClassName("cardFlipped");
 let contactMenu = document.getElementById("contact-menu");
 let wonLevel = false;
@@ -371,6 +372,8 @@ function flipCounter(){
 /* When clicking on easy difficulty, this function is called.*/
 
 function easyMode() {
+    flipMenu.classList.remove('d-none');
+    parent.classList.remove('d-none');
     wonLevel = false;
     checkIfWonEasy();
     toggleMd();
@@ -392,6 +395,8 @@ function easyMode() {
 /* When clicking on medium difficulty, this function is called.*/
 
 function mediumMode() {
+    flipMenu.classList.remove('d-none');
+    parent.classList.remove('d-none');
     wonLevel = false;
     checkIfWonMedium();
     toggleHd();
@@ -411,6 +416,8 @@ function mediumMode() {
 /* When clicking on hard difficulty, this function is called.*/
 
 function hardMode() {
+    flipMenu.classList.remove('d-none');
+    parent.classList.remove('d-none');
     wonLevel = false;
     checkIfWonHard();
     selectedHard();

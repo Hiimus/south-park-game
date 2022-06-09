@@ -26,9 +26,9 @@
 
 <body>
 
-    <!-- Menu button, Flip conter and Restart wheelCounting amount of flips & Restart wheel -->
+    <!-- Menu button, Flip counter and Restart wheelCounting amount of flips & Restart wheel -->
 
-    <div class="container">
+    <div class="container d-none" id="flip-menu">
         <div class="row justify-content-center row-header">
             <div class="col-3 col-md-3" id="flips">Flips: 0 </div>
             <div class="col-4 col-md-3" id="timer">Timer: </div>
@@ -149,7 +149,7 @@
 
     <!--Game Board with all game cards-->
 
-    <div class="game-board" id="game-board">
+    <div class="game-board d-none" id="game-board">
         <div class="game-card" data-name="chef">
             <img class="front-side" src="assets/img/sp-chef.png" alt="Chef">
             <img class="back-side" src="assets/img/sp-card.png" alt="South Park sign">
