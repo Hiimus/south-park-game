@@ -175,14 +175,18 @@ function resetFlipCounter() {
 function clickRestartButton() {
     wonLevel = false;
     restartWasClicked = true;
-    clearTimerRestart();
-    resetFlipCounter();
+    clearTimerRestart(); // Resets timer
+    resetFlipCounter(); // Resets flip counter to 0
     restartIcon.style.transform = "scale(1.5)";
     hover = true;
     hoverRestart();
-    resetTimerEs();
-    resetTimerMd();
-    resetTimerHd();
+    if (easyModus === true){
+        resetTimerEs()
+    } else if (mediumModus === true){
+        resetTimerMd();
+    } else if (hardModus === true){
+        resetTimerHd();
+    }
 }
 
 /*This function will clearinterval/reset timer when clicking restart button (see timerStart functions)*/
@@ -207,32 +211,25 @@ function hoverRestart() {
 /*Resets the timer for easy mode*/
 
 function resetTimerEs() {
-    if (easyModus === true){
-        setTimeout(function (){
-            timerDiv.innerHTML = "Timer: 30";
-        }, 1050);
-        
-    }
+    setTimeout(function (){
+        timerDiv.innerHTML = "Timer: 30";
+    }, 1050);
 }
 
 /*Resets the timer for medium mode*/
 
 function resetTimerMd() {
-    if (mediumModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 45";
         }, 1050);
-    }
 }
 
 /*Resets the timer for hard mode*/
 
 function resetTimerHd() {
-    if (hardModus === true){
         setTimeout(function (){
             timerDiv.innerHTML = "Timer: 59";
         }, 1050);
-    }
 }
 
 /*Is called when you lose the game*/
